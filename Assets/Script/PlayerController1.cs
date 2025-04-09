@@ -21,10 +21,9 @@ namespace Player
 
         public void Jump()
         {
-            if (playerSpeed.isFalling)
-            {
-
-            }
+            if (!playerSpeed.isFalling)
+                playerSpeed.speed.y += 15;
+            playerSpeed.isFalling = true;
         }
 
         public bool FastFall()
