@@ -19,10 +19,14 @@ namespace Player
             transform.Translate(playerSpeed.getSpeed(), Space.World);
         }
 
+        public void StartFall()
+        {
+            playerSpeed.isFalling = true;
+        }
         public void Jump()
         {
             if (!playerSpeed.isFalling)
-                playerSpeed.speed.y += 15;
+                playerSpeed.speed.y = 12f * Time.deltaTime;
             playerSpeed.isFalling = true;
         }
 
@@ -38,7 +42,7 @@ namespace Player
 
         public void Portal(Vector2 direction)
         {
-
+            playerSpeed.speed.x = 0f;
         }
     }
 }

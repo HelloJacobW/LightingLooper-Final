@@ -8,10 +8,9 @@ namespace Player
     {
         PlayerInput input;
         public Vector2 speed;
-        [SerializeField]private float speedGain = 0.5f;
-        [SerializeField] private float loseSpeed = 1f;
-        public bool isFalling = false;
-        private float lastMoveDirection;
+        [SerializeField]private float speedGain = 0.1f;
+        [SerializeField] private float speedLoss = 0.1f;
+        public bool isFalling = true;
 
         private void Start()
         {
@@ -25,29 +24,36 @@ namespace Player
 
         public void gainSpeed()
         {
+                speed.x += speedGain * input.GetMove() * Time.deltaTime;
+        }
+        public void loseSpeed()
+        {
             if (speed.x > 0) speed.x -= 0.01f * Time.deltaTime;
             else if (speed.x < 0) speed.x += 0.01f * Time.deltaTime;
-                speed.x += 0.01f * input.GetMove() * Time.deltaTime;
         }
 
-        private void Update()
+        public void OnCollisionEnter2D(Collision2D other)
         {
-            if (isFalling)
-            {
-                speed.y -= 0.01f * Time.deltaTime;
-            }
-        }
-
-        private void OnCollisionEnter(Collision other)
-        {
+            print("anything");
+            Debug.Log("hitsomething");
             if (other.gameObject.CompareTag("Ground"))
             {
-                speed.y = 0;
+                Debug.Log("hitGround");
+                speed.y = 0f;
                 isFalling = false;
             }
             if (other.gameObject.CompareTag("Wall"))
             {
+                Debug.Log("hit wall");
                 speed.x = 0;
+            }
+        }
+        private void Update()
+        {
+            speed.y = Mathf.Clamp(speed.y,-1f,15f);
+            if (isFalling) 
+            {
+                speed.y -= 0.01f * Time.deltaTime;
             }
         }
     }

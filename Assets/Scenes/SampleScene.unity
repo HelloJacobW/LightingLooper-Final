@@ -522,7 +522,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 4
+  m_Constraints: 6
 --- !u!70 &1424620563
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -655,8 +655,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: {x: 0, y: 0}
   speedGain: 1.2
-  loseSpeed: 1
-  isFalling: 0
+  speedLoss: 0.1
+  isFalling: 1
 --- !u!114 &1424620568
 MonoBehaviour:
   m_ObjectHideFlags: 0
