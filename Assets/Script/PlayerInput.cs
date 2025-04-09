@@ -39,7 +39,6 @@ namespace Player
 
         private void OnMove(UnityEngine.InputSystem.InputAction.CallbackContext context)
         {
-            Debug.Log("context");
             moveInput = context.ReadValue<float>(); 
         }
         
@@ -50,7 +49,7 @@ namespace Player
         // Update is called once per frame
         void Update()
         {
-        
+            speed.gainSpeed();
         }
     }
 }

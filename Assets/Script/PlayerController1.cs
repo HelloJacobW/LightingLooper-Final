@@ -16,7 +16,7 @@ namespace Player
         // Update is called once per frame
         void Update()
         {
-
+            transform.Translate(playerSpeed.getSpeed(), Space.World);
         }
 
         public void Jump()
