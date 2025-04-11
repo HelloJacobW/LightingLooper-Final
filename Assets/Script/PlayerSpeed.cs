@@ -10,6 +10,7 @@ namespace Player
         public Vector2 speed;
         public float fallMomentum = 0;
         public bool[] rightStop = {false, false};
+        public bool canPortal = true;
         [SerializeField]private float speedGain = 0.01f;
         [SerializeField] private float speedLoss = 0.1f;
         [SerializeField] private float fallSpeed = 0.1f;
@@ -51,6 +52,7 @@ namespace Player
             {
                 Debug.Log("hit wall");
                 rightStop[1] = true;
+                canPortal = false;
                 if (speed.x > 0) rightStop[0] = true;
                 speed.x = 0;
             }
@@ -67,6 +69,7 @@ namespace Player
             {
                 Debug.Log("off wall");
                 rightStop[1] = false;
+                canPortal = true;
             }
         }
         private void Update()
@@ -77,6 +80,11 @@ namespace Player
                 speed.y -= fallSpeed * Time.deltaTime;
                 fallMomentum += speed.y * Time.deltaTime;
             }
+        }
+
+        public bool MovingRight()
+        {
+            return speed.x >= 0;
         }
     }
 }
