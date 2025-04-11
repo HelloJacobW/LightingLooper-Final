@@ -640,6 +640,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f17001999f8b01545baba54bb5a68dfb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stickDirection: {x: 0, y: 0}
   moveInput: 0
 --- !u!114 &1424620567
 MonoBehaviour:
@@ -654,8 +655,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: {x: 0, y: 0}
-  speedGain: 1.2
-  speedLoss: 0.1
+  fallMomentum: 0
+  rightStop: 0000
+  speedGain: 0.01
+  speedLoss: 0.01
+  fallSpeed: 0.05
+  maxXSpeed: 0.5
+  minXSpeed: -0.5
   isFalling: 1
 --- !u!114 &1424620568
 MonoBehaviour:

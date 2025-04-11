@@ -40,7 +40,7 @@ namespace Player
 
         }
 
-        public void Portal(Vector2 direction)
+        public void PortalDirect(Vector2 direction)
         {
             playerSpeed.speed.x = 0f;
         }

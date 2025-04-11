@@ -11,6 +11,7 @@ namespace Player
         private APlayerControls inputActions;
         private PlayerSpeed speed;
         private PlayerController controller;
+        [SerializeField] private Vector2 stickDirection;
         [SerializeField] private float moveInput;
         
 
@@ -18,7 +19,8 @@ namespace Player
         {
             speed = GetComponent<PlayerSpeed>();
             controller = GetComponent<PlayerController>();
-            inputActions = new APlayerControls();        
+            inputActions = new APlayerControls();
+            stickDirection = Vector2.zero;
         }
         void Start()
         {
@@ -32,16 +34,39 @@ namespace Player
 
             inputActions.PlayerActions.Attack.canceled += ctx => controller.Attacks();
 
-            inputActions.PlayerActions.Portal.started += ctx => controller.Portal(speed.speed);
+            inputActions.PlayerActions.Portal.started += ctx => controller.PortalDirect(stickDirection);
+
+            inputActions.PlayerActions.StickRotation.started += StickDirection;
+            inputActions.PlayerActions.StickRotation.performed += StickDirection;
+            inputActions.PlayerActions.StickRotation.canceled += StickDirection;
 
             inputActions.Enable();
         }
 
+        private void StickDirection(UnityEngine.InputSystem.InputAction.CallbackContext obj)
+        {
+            stickDirection = obj.ReadValue<Vector2>();
+        }
+
         private void OnMove(UnityEngine.InputSystem.InputAction.CallbackContext context)
         {
-            moveInput = context.ReadValue<float>(); 
+            moveInput = context.ReadValue<float>();
+            if (moveInput == 0 || IsStickBackwards())
+            {
+                //Debug.Log("LoseSpeed from stick");
+                speed.loseSpeed();
+            }
+        }
+        public bool IsStickBackwards()
+        {
+            //print((moveInput / Mathf.Abs(moveInput)) + "  " + (speed.speed.x / Mathf.Abs(speed.speed.x)));
+            return moveInput != 0 && moveInput / Mathf.Abs(moveInput) != speed.speed.x / Mathf.Abs(speed.speed.x);
         }
         
+        public Vector2 getStickAxis()
+        {
+            return stickDirection;
+        }
         public float GetMove()
         {
             return moveInput;
@@ -49,7 +74,12 @@ namespace Player
         // Update is called once per frame
         void Update()
         {
+            if (!speed.rightStop[1] || (moveInput < 0 && speed.rightStop[0]) || (moveInput > 0 && !speed.rightStop[0]))
             speed.gainSpeed();
+            if (speed.isFalling)
+            {
+                speed.loseSpeed();
+            }
         }
     }
 }

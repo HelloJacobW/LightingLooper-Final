@@ -71,6 +71,15 @@ public partial class @APlayerControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""StickRotation"",
+                    ""type"": ""Value"",
+                    ""id"": ""0f8d8bd2-0fc5-4cd3-a5e4-5d548d7c54e5"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -128,6 +137,45 @@ public partial class @APlayerControls: IInputActionCollection2, IDisposable
                     ""action"": ""FastFall"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""77c98687-11bb-4e1b-8400-8fb676fdf5fa"",
+                    ""path"": ""<XInputController>/leftStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""StickRotation"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""UI"",
+            ""id"": ""60379680-ad68-4c60-84c5-d083cfd6aaf2"",
+            ""actions"": [
+                {
+                    ""name"": ""Menu"",
+                    ""type"": ""Button"",
+                    ""id"": ""822e2d50-268a-431f-906a-1780eef85f60"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""022c82a2-2e6d-4da0-8902-b8669196db3c"",
+                    ""path"": ""<XInputController>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Menu"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -141,6 +189,10 @@ public partial class @APlayerControls: IInputActionCollection2, IDisposable
         m_PlayerActions_Portal = m_PlayerActions.FindAction("Portal", throwIfNotFound: true);
         m_PlayerActions_Move = m_PlayerActions.FindAction("Move", throwIfNotFound: true);
         m_PlayerActions_FastFall = m_PlayerActions.FindAction("FastFall", throwIfNotFound: true);
+        m_PlayerActions_StickRotation = m_PlayerActions.FindAction("StickRotation", throwIfNotFound: true);
+        // UI
+        m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
+        m_UI_Menu = m_UI.FindAction("Menu", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -207,6 +259,7 @@ public partial class @APlayerControls: IInputActionCollection2, IDisposable
     private readonly InputAction m_PlayerActions_Portal;
     private readonly InputAction m_PlayerActions_Move;
     private readonly InputAction m_PlayerActions_FastFall;
+    private readonly InputAction m_PlayerActions_StickRotation;
     public struct PlayerActionsActions
     {
         private @APlayerControls m_Wrapper;
@@ -216,6 +269,7 @@ public partial class @APlayerControls: IInputActionCollection2, IDisposable
         public InputAction @Portal => m_Wrapper.m_PlayerActions_Portal;
         public InputAction @Move => m_Wrapper.m_PlayerActions_Move;
         public InputAction @FastFall => m_Wrapper.m_PlayerActions_FastFall;
+        public InputAction @StickRotation => m_Wrapper.m_PlayerActions_StickRotation;
         public InputActionMap Get() { return m_Wrapper.m_PlayerActions; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -240,6 +294,9 @@ public partial class @APlayerControls: IInputActionCollection2, IDisposable
             @FastFall.started += instance.OnFastFall;
             @FastFall.performed += instance.OnFastFall;
             @FastFall.canceled += instance.OnFastFall;
+            @StickRotation.started += instance.OnStickRotation;
+            @StickRotation.performed += instance.OnStickRotation;
+            @StickRotation.canceled += instance.OnStickRotation;
         }
 
         private void UnregisterCallbacks(IPlayerActionsActions instance)
@@ -259,6 +316,9 @@ public partial class @APlayerControls: IInputActionCollection2, IDisposable
             @FastFall.started -= instance.OnFastFall;
             @FastFall.performed -= instance.OnFastFall;
             @FastFall.canceled -= instance.OnFastFall;
+            @StickRotation.started -= instance.OnStickRotation;
+            @StickRotation.performed -= instance.OnStickRotation;
+            @StickRotation.canceled -= instance.OnStickRotation;
         }
 
         public void RemoveCallbacks(IPlayerActionsActions instance)
@@ -276,6 +336,52 @@ public partial class @APlayerControls: IInputActionCollection2, IDisposable
         }
     }
     public PlayerActionsActions @PlayerActions => new PlayerActionsActions(this);
+
+    // UI
+    private readonly InputActionMap m_UI;
+    private List<IUIActions> m_UIActionsCallbackInterfaces = new List<IUIActions>();
+    private readonly InputAction m_UI_Menu;
+    public struct UIActions
+    {
+        private @APlayerControls m_Wrapper;
+        public UIActions(@APlayerControls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Menu => m_Wrapper.m_UI_Menu;
+        public InputActionMap Get() { return m_Wrapper.m_UI; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(UIActions set) { return set.Get(); }
+        public void AddCallbacks(IUIActions instance)
+        {
+            if (instance == null || m_Wrapper.m_UIActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_UIActionsCallbackInterfaces.Add(instance);
+            @Menu.started += instance.OnMenu;
+            @Menu.performed += instance.OnMenu;
+            @Menu.canceled += instance.OnMenu;
+        }
+
+        private void UnregisterCallbacks(IUIActions instance)
+        {
+            @Menu.started -= instance.OnMenu;
+            @Menu.performed -= instance.OnMenu;
+            @Menu.canceled -= instance.OnMenu;
+        }
+
+        public void RemoveCallbacks(IUIActions instance)
+        {
+            if (m_Wrapper.m_UIActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IUIActions instance)
+        {
+            foreach (var item in m_Wrapper.m_UIActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_UIActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public UIActions @UI => new UIActions(this);
     public interface IPlayerActionsActions
     {
         void OnAttack(InputAction.CallbackContext context);
@@ -283,5 +389,10 @@ public partial class @APlayerControls: IInputActionCollection2, IDisposable
         void OnPortal(InputAction.CallbackContext context);
         void OnMove(InputAction.CallbackContext context);
         void OnFastFall(InputAction.CallbackContext context);
+        void OnStickRotation(InputAction.CallbackContext context);
+    }
+    public interface IUIActions
+    {
+        void OnMenu(InputAction.CallbackContext context);
     }
 }
