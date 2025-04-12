@@ -21,7 +21,7 @@ namespace Player
         }
         private void Update()
         {
-            BuildAerialDownPortalForward();
+            BuildAerialUpPortalUp();
             playPos = new Vector2(PlayerGameObject.transform.position.x,PlayerGameObject.transform.position.y);
         }
 
@@ -342,12 +342,12 @@ namespace Player
             {
                 if (speed.MovingRight())
                 {
-                    gameObject.transform.position = new Vector3(playPos.x + 2, playPos.y + 1, 0);
-                    gameObject.transform.rotation = Quaternion.Euler(0, 0,9 0);
+                    gameObject.transform.position = new Vector3(playPos.x, playPos.y + gp*2, 0);
+                    gameObject.transform.rotation = Quaternion.Euler(0, 0,90);
                 }
                 else
                 {
-                    gameObject.transform.position = new Vector3(playPos.x - 2, playPos.y + 1, 0);
+                    gameObject.transform.position = new Vector3(playPos.x, playPos.y + gp*2, 0);
                     gameObject.transform.rotation = Quaternion.Euler(0, 0, 90);
                 }
             }
@@ -355,12 +355,12 @@ namespace Player
             {
                 if (speed.MovingRight())
                 {
-                    gameObject.transform.position = new Vector3(playPos.x, playPos.y + 2, 0);
+                    gameObject.transform.position = new Vector3(playPos.x + gp*2, playPos.y, 0);
                     gameObject.transform.rotation = Quaternion.Euler(0, 0, 0);
                 }
                 else
                 {
-                    gameObject.transform.position = new Vector3(playPos.x, playPos.y + 2, 0);
+                    gameObject.transform.position = new Vector3(playPos.x - gp*2, playPos.y, 0);
                     gameObject.transform.rotation = Quaternion.Euler(0, 0, 0);
                 }
             }
@@ -371,25 +371,25 @@ namespace Player
             {
                 if (speed.MovingRight())
                 {
-                    gameObject.transform.position = new Vector3(playPos.x + 3, playPos.y + 2, 0);
-                    gameObject.transform.rotation = Quaternion.Euler(0, 0, 90);
+                    gameObject.transform.position = new Vector3(playPos.x + 1, playPos.y + speed.speed.y, 0);
+                    gameObject.transform.rotation = Quaternion.Euler(0, 0, 0);
                 }
                 else
                 {
-                    gameObject.transform.position = new Vector3(playPos.x + 3, playPos.y + 2, 0);
-                    gameObject.transform.rotation = Quaternion.Euler(0, 0, 90);
+                    gameObject.transform.position = new Vector3(playPos.x - 1, playPos.y + speed.speed.y, 0);
+                    gameObject.transform.rotation = Quaternion.Euler(0, 0, 0);
                 }
             }
             else
             {
                 if (speed.MovingRight())
                 {
-                    gameObject.transform.position = new Vector3(playPos.x + 3, playPos.y + 2, 0);
+                    gameObject.transform.position = new Vector3(playPos.x - speed.speed.x, playPos.y - 2, 0);
                     gameObject.transform.rotation = Quaternion.Euler(0, 0, 90);
                 }
                 else
                 {
-                    gameObject.transform.position = new Vector3(playPos.x + 3, playPos.y + 2, 0);
+                    gameObject.transform.position = new Vector3(playPos.x - speed.speed.x, playPos.y - 2, 0);
                     gameObject.transform.rotation = Quaternion.Euler(0, 0, 90);
                 }
             }
@@ -400,12 +400,12 @@ namespace Player
             {
                 if (speed.MovingRight())
                 {
-                    gameObject.transform.position = new Vector3(playPos.x + 3, playPos.y + 2, 0);
+                    gameObject.transform.position = new Vector3(playPos.x + speed.speed.x, playPos.y - gp*2, 0);
                     gameObject.transform.rotation = Quaternion.Euler(0, 0, 90);
                 }
                 else
                 {
-                    gameObject.transform.position = new Vector3(playPos.x + 3, playPos.y + 2, 0);
+                    gameObject.transform.position = new Vector3(playPos.x + speed.speed.x, playPos.y - gp*2, 0);
                     gameObject.transform.rotation = Quaternion.Euler(0, 0, 90);
                 }
             }
@@ -413,12 +413,12 @@ namespace Player
             {
                 if (speed.MovingRight())
                 {
-                    gameObject.transform.position = new Vector3(playPos.x + 3, playPos.y + 2, 0);
+                    gameObject.transform.position = new Vector3(playPos.x - speed.speed.x - 2.5f, playPos.y - gp*2, 0);
                     gameObject.transform.rotation = Quaternion.Euler(0, 0, 90);
                 }
                 else
                 {
-                    gameObject.transform.position = new Vector3(playPos.x + 3, playPos.y + 2, 0);
+                    gameObject.transform.position = new Vector3(playPos.x - speed.speed.x + 2.5f, playPos.y - gp*2, 0);
                     gameObject.transform.rotation = Quaternion.Euler(0, 0, 90);
                 }
             }
@@ -429,12 +429,12 @@ namespace Player
             {
                 if (speed.MovingRight())
                 {
-                    gameObject.transform.position = new Vector3(playPos.x + 3, playPos.y + 2, 0);
+                    gameObject.transform.position = new Vector3(playPos.x + speed.speed.x, playPos.y + gp*2, 0);
                     gameObject.transform.rotation = Quaternion.Euler(0, 0, 90);
                 }
                 else
                 {
-                    gameObject.transform.position = new Vector3(playPos.x + 3, playPos.y + 2, 0);
+                    gameObject.transform.position = new Vector3(playPos.x + speed.speed.x, playPos.y + gp*2, 0);
                     gameObject.transform.rotation = Quaternion.Euler(0, 0, 90);
                 }
             }
@@ -442,12 +442,12 @@ namespace Player
             {
                 if (speed.MovingRight())
                 {
-                    gameObject.transform.position = new Vector3(playPos.x + 3, playPos.y + 2, 0);
+                    gameObject.transform.position = new Vector3(playPos.x + speed.speed.x, playPos.y - 1.75f, 0);
                     gameObject.transform.rotation = Quaternion.Euler(0, 0, 90);
                 }
                 else
                 {
-                    gameObject.transform.position = new Vector3(playPos.x + 3, playPos.y + 2, 0);
+                    gameObject.transform.position = new Vector3(playPos.x + speed.speed.x, playPos.y - 1.75f, 0);
                     gameObject.transform.rotation = Quaternion.Euler(0, 0, 90);
                 }
             }
@@ -458,26 +458,26 @@ namespace Player
             {
                 if (speed.MovingRight())
                 {
-                    gameObject.transform.position = new Vector3(playPos.x + 3, playPos.y + 2, 0);
-                    gameObject.transform.rotation = Quaternion.Euler(0, 0, 90);
+                    gameObject.transform.position = new Vector3(playPos.x + 1, playPos.y + speed.speed.y, 0);
+                    gameObject.transform.rotation = Quaternion.Euler(0, 0, 0);
                 }
                 else
                 {
-                    gameObject.transform.position = new Vector3(playPos.x + 3, playPos.y + 2, 0);
-                    gameObject.transform.rotation = Quaternion.Euler(0, 0, 90);
+                    gameObject.transform.position = new Vector3(playPos.x - 1, playPos.y + speed.speed.y, 0);
+                    gameObject.transform.rotation = Quaternion.Euler(0, 0, 0);
                 }
             }
             else
             {
                 if (speed.MovingRight())
                 {
-                    gameObject.transform.position = new Vector3(playPos.x + 3, playPos.y + 2, 0);
-                    gameObject.transform.rotation = Quaternion.Euler(0, 0, 90);
+                    gameObject.transform.position = new Vector3(playPos.x + 1, playPos.y + speed.speed.y + 3, 0);
+                    gameObject.transform.rotation = Quaternion.Euler(0, 0, 0);
                 }
                 else
                 {
-                    gameObject.transform.position = new Vector3(playPos.x + 3, playPos.y + 2, 0);
-                    gameObject.transform.rotation = Quaternion.Euler(0, 0, 90);
+                    gameObject.transform.position = new Vector3(playPos.x - 1, playPos.y + speed.speed.y + 3, 0);
+                    gameObject.transform.rotation = Quaternion.Euler(0, 0, 0);
                 }
             }
         }
@@ -487,12 +487,12 @@ namespace Player
             {
                 if (speed.MovingRight())
                 {
-                    gameObject.transform.position = new Vector3(playPos.x + 3, playPos.y + 2, 0);
+                    gameObject.transform.position = new Vector3(playPos.x + speed.speed.x, playPos.y - 1.75f, 0);
                     gameObject.transform.rotation = Quaternion.Euler(0, 0, 90);
                 }
                 else
                 {
-                    gameObject.transform.position = new Vector3(playPos.x + 3, playPos.y + 2, 0);
+                    gameObject.transform.position = new Vector3(playPos.x + speed.speed.x, playPos.y - 1.75f, 0);
                     gameObject.transform.rotation = Quaternion.Euler(0, 0, 90);
                 }
             }
@@ -500,13 +500,13 @@ namespace Player
             {
                 if (speed.MovingRight())
                 {
-                    gameObject.transform.position = new Vector3(playPos.x + 3, playPos.y + 2, 0);
-                    gameObject.transform.rotation = Quaternion.Euler(0, 0, 90);
+                    gameObject.transform.position = new Vector3(playPos.x - gp*2, playPos.y + speed.speed.y, 0);
+                    gameObject.transform.rotation = Quaternion.Euler(0, 0, 0);
                 }
                 else
                 {
-                    gameObject.transform.position = new Vector3(playPos.x + 3, playPos.y + 2, 0);
-                    gameObject.transform.rotation = Quaternion.Euler(0, 0, 90);
+                    gameObject.transform.position = new Vector3(playPos.x + gp*2, playPos.y + speed.speed.y, 0);
+                    gameObject.transform.rotation = Quaternion.Euler(0, 0, 0);
                 }
             }
         }
@@ -516,12 +516,12 @@ namespace Player
             {
                 if (speed.MovingRight())
                 {
-                    gameObject.transform.position = new Vector3(playPos.x + 3, playPos.y + 2, 0);
+                    gameObject.transform.position = new Vector3(playPos.x + speed.speed.x, playPos.y + gp*2, 0);
                     gameObject.transform.rotation = Quaternion.Euler(0, 0, 90);
                 }
                 else
                 {
-                    gameObject.transform.position = new Vector3(playPos.x + 3, playPos.y + 2, 0);
+                    gameObject.transform.position = new Vector3(playPos.x + speed.speed.x, playPos.y + gp*2, 0);
                     gameObject.transform.rotation = Quaternion.Euler(0, 0, 90);
                 }
             }
@@ -529,13 +529,13 @@ namespace Player
             {
                 if (speed.MovingRight())
                 {
-                    gameObject.transform.position = new Vector3(playPos.x + 3, playPos.y + 2, 0);
-                    gameObject.transform.rotation = Quaternion.Euler(0, 0, 90);
+                    gameObject.transform.position = new Vector3(playPos.x - gp * 2, playPos.y + speed.speed.y, 0);
+                    gameObject.transform.rotation = Quaternion.Euler(0, 0, 0);
                 }
                 else
                 {
-                    gameObject.transform.position = new Vector3(playPos.x + 3, playPos.y + 2, 0);
-                    gameObject.transform.rotation = Quaternion.Euler(0, 0, 90);
+                    gameObject.transform.position = new Vector3(playPos.x + gp * 2, playPos.y + speed.speed.y, 0);
+                    gameObject.transform.rotation = Quaternion.Euler(0, 0, 0);
                 }
             }
         }
@@ -545,25 +545,25 @@ namespace Player
             {
                 if (speed.MovingRight())
                 {
-                    gameObject.transform.position = new Vector3(playPos.x + 3, playPos.y + 2, 0);
-                    gameObject.transform.rotation = Quaternion.Euler(0, 0, 90);
+                    gameObject.transform.position = new Vector3(playPos.x + 2, playPos.y + speed.speed.y, 0);
+                    gameObject.transform.rotation = Quaternion.Euler(0, 0, 0);
                 }
                 else
                 {
-                    gameObject.transform.position = new Vector3(playPos.x + 3, playPos.y + 2, 0);
-                    gameObject.transform.rotation = Quaternion.Euler(0, 0, 90);
+                    gameObject.transform.position = new Vector3(playPos.x - 2, playPos.y + speed.speed.y, 0);
+                    gameObject.transform.rotation = Quaternion.Euler(0, 0, 0);
                 }
             }
             else
             {
                 if (speed.MovingRight())
                 {
-                    gameObject.transform.position = new Vector3(playPos.x + 3, playPos.y + 2, 0);
+                    gameObject.transform.position = new Vector3(playPos.x + speed.speed.x, playPos.y - speed.speed.y + 2, 0);
                     gameObject.transform.rotation = Quaternion.Euler(0, 0, 90);
                 }
                 else
                 {
-                    gameObject.transform.position = new Vector3(playPos.x + 3, playPos.y + 2, 0);
+                    gameObject.transform.position = new Vector3(playPos.x + speed.speed.x, playPos.y - speed.speed.y + 2, 0);
                     gameObject.transform.rotation = Quaternion.Euler(0, 0, 90);
                 }
             }
@@ -574,12 +574,12 @@ namespace Player
             {
                 if (speed.MovingRight())
                 {
-                    gameObject.transform.position = new Vector3(playPos.x + 3, playPos.y + 2, 0);
+                    gameObject.transform.position = new Vector3(playPos.x + speed.speed.x, playPos.y - 1.75f, 0);
                     gameObject.transform.rotation = Quaternion.Euler(0, 0, 90);
                 }
                 else
                 {
-                    gameObject.transform.position = new Vector3(playPos.x + 3, playPos.y + 2, 0);
+                    gameObject.transform.position = new Vector3(playPos.x + speed.speed.x, playPos.y - 1.75f, 0);
                     gameObject.transform.rotation = Quaternion.Euler(0, 0, 90);
                 }
             }
@@ -587,12 +587,12 @@ namespace Player
             {
                 if (speed.MovingRight())
                 {
-                    gameObject.transform.position = new Vector3(playPos.x + 3, playPos.y + 2, 0);
+                    gameObject.transform.position = new Vector3(playPos.x + speed.speed.x, playPos.y + gp * 2, 0);
                     gameObject.transform.rotation = Quaternion.Euler(0, 0, 90);
                 }
                 else
                 {
-                    gameObject.transform.position = new Vector3(playPos.x + 3, playPos.y + 2, 0);
+                    gameObject.transform.position = new Vector3(playPos.x + speed.speed.x, playPos.y + gp * 2, 0);
                     gameObject.transform.rotation = Quaternion.Euler(0, 0, 90);
                 }
             }
@@ -603,12 +603,12 @@ namespace Player
             {
                 if (speed.MovingRight())
                 {
-                    gameObject.transform.position = new Vector3(playPos.x + 3, playPos.y + 2, 0);
+                    gameObject.transform.position = new Vector3(playPos.x + speed.speed.x, playPos.y + gp * 2, 0);
                     gameObject.transform.rotation = Quaternion.Euler(0, 0, 90);
                 }
                 else
                 {
-                    gameObject.transform.position = new Vector3(playPos.x + 3, playPos.y + 2, 0);
+                    gameObject.transform.position = new Vector3(playPos.x + speed.speed.x, playPos.y + gp * 2, 0);
                     gameObject.transform.rotation = Quaternion.Euler(0, 0, 90);
                 }
             }
@@ -616,12 +616,12 @@ namespace Player
             {
                 if (speed.MovingRight())
                 {
-                    gameObject.transform.position = new Vector3(playPos.x + 3, playPos.y + 2, 0);
+                    gameObject.transform.position = new Vector3(playPos.x - 3, playPos.y + gp * 2, 0);
                     gameObject.transform.rotation = Quaternion.Euler(0, 0, 90);
                 }
                 else
                 {
-                    gameObject.transform.position = new Vector3(playPos.x + 3, playPos.y + 2, 0);
+                    gameObject.transform.position = new Vector3(playPos.x + 3, playPos.y + gp * 2, 0);
                     gameObject.transform.rotation = Quaternion.Euler(0, 0, 90);
                 }
             }
