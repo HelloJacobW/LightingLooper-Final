@@ -437,6 +437,7 @@ GameObject:
   m_Component:
   - component: {fileID: 886212853}
   - component: {fileID: 886212852}
+  - component: {fileID: 886212854}
   m_Layer: 0
   m_Name: PortalScript
   m_TagString: Portal1
@@ -466,13 +467,49 @@ Transform:
   m_GameObject: {fileID: 886212851}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.187303, y: 4.691719, z: -12.454698}
+  m_LocalPosition: {x: 13.49, y: -0.76, z: -12.454698}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 896085624}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &886212854
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 886212851}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_Radius: 0.5
 --- !u!1 &896085621
 GameObject:
   m_ObjectHideFlags: 0
@@ -483,6 +520,7 @@ GameObject:
   m_Component:
   - component: {fileID: 896085624}
   - component: {fileID: 896085623}
+  - component: {fileID: 896085625}
   m_Layer: 0
   m_Name: Circle
   m_TagString: Portal1
@@ -551,12 +589,35 @@ Transform:
   m_GameObject: {fileID: 896085621}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -1.9, y: 0, z: 0}
   m_LocalScale: {x: 0.5796, y: 2.6515, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 886212853}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &896085625
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 896085621}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.29432178
+  m_Height: 0.99999994
+  m_Direction: 1
+  m_Center: {x: -0.012236435, y: 0, z: 0}
 --- !u!1 &999648335
 GameObject:
   m_ObjectHideFlags: 0
@@ -567,6 +628,7 @@ GameObject:
   m_Component:
   - component: {fileID: 999648337}
   - component: {fileID: 999648336}
+  - component: {fileID: 999648338}
   m_Layer: 0
   m_Name: PortalScript (1)
   m_TagString: Portal2
@@ -596,13 +658,49 @@ Transform:
   m_GameObject: {fileID: 999648335}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.187303, y: 4.691719, z: -12.454698}
+  m_LocalPosition: {x: -5.64, y: -1.19, z: -12.454698}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 390638667}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &999648338
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 999648335}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_Radius: 0.5
 --- !u!1 &1132598627
 GameObject:
   m_ObjectHideFlags: 0
@@ -744,6 +842,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1424620565}
   - component: {fileID: 1424620564}
+  - component: {fileID: 1424620569}
   - component: {fileID: 1424620563}
   - component: {fileID: 1424620562}
   - component: {fileID: 1424620568}
@@ -936,6 +1035,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 153b0873f465f13459a55ccf9f6957e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1424620569
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1424620561}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05ed38d66e468fe49aaf97e4de4010a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SecondPortal: {fileID: 999648335}
+  portal: []
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

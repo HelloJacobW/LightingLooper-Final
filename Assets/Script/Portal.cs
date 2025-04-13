@@ -12,7 +12,8 @@ namespace Player
         private bool firstPortal;
         private float gp = 0.75f;
         public GameObject PlayerGameObject;
-        [SerializeField] private Event PortalApear;
+        public Event PortalAppear = new Event();
+        public Event PortalDisappear = new Event();
         void Start()
         {
             speed = FindFirstObjectByType<PlayerSpeed>();
@@ -21,7 +22,6 @@ namespace Player
         }
         private void Update()
         {
-            BuildAerialUpPortalUp();
             playPos = new Vector2(PlayerGameObject.transform.position.x,PlayerGameObject.transform.position.y);
         }
 
@@ -625,6 +625,17 @@ namespace Player
                     gameObject.transform.rotation = Quaternion.Euler(0, 0, 90);
                 }
             }
+        }
+
+        //Portal Deleting and stuff
+
+        public void StartDelete()
+        {
+            Invoke("Delete", gp * 2);
+        }
+        public void Delete()
+        {
+           // PortalDisappear.Invoke();
         }
     }
 }

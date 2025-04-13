@@ -77,7 +77,7 @@ namespace Player
             if (!speed.rightStop[1] || (moveInput < 0 && speed.rightStop[0]) || (moveInput > 0 && !speed.rightStop[0]))
             {
                 speed.gainSpeed();
-                Debug.Log("Lose Speed");
+               // Debug.Log("Lose Speed");
             }
             if (speed.isFalling)
             {
