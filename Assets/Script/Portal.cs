@@ -7,153 +7,20 @@ namespace Player
     public class Portal : MonoBehaviour
     {
         private PlayerSpeed speed;
-        private Vector2 temp;
-        private Vector2 playPos;
+        public Vector2 playPos;
         private bool firstPortal;
         private float gp = 0.75f;
         public GameObject PlayerGameObject;
         public Event PortalAppear = new Event();
-        public Event PortalDisappear = new Event();
         void Start()
         {
             speed = FindFirstObjectByType<PlayerSpeed>();
-            temp = Vector2.zero;
             if(gameObject.CompareTag("Portal1")) firstPortal = true;
         }
         private void Update()
         {
             playPos = new Vector2(PlayerGameObject.transform.position.x,PlayerGameObject.transform.position.y);
         }
-
-        //Portal Change Momentums Names Direction going, to direction going to
-        public void GroundPortalDown()
-        {
-            if(speed.MovingRight())
-            {
-                temp = speed.speed;
-                speed.speed.y = -1 * speed.speed.x;
-            }
-            else
-            {
-                temp = speed.speed;
-                speed.speed.y = speed.speed.x;
-            }
-        }
-        public void GroundPortalUp() 
-        {
-            if(speed.MovingRight())
-            {
-                temp = speed.speed;
-                speed.speed.y = temp.x;
-            }
-            else
-            {
-                temp = speed.speed;
-                speed.speed.y = -1 * speed.speed.x;
-            }
-        }
-        public void GroundPortalBack()
-        {
-            speed.speed.x *= -1;
-        }
-        public void AerialForwardPortalDown()
-        {
-            temp = speed.speed;
-            if(speed.MovingRight())
-            {
-                speed.speed.y = -1 * temp.x;
-                speed.speed.x = -1 * temp.y;
-            }
-            else
-            {
-                speed.speed.y = temp.x;
-                speed.speed.x = temp.y;
-            }
-        }
-        public void AerialUpPortalDown()
-        {
-            speed.speed.y *= -1;
-        }
-        public void AerialForwardPortalUp()
-        {
-            temp = speed.speed;
-            if (speed.MovingRight())
-            {
-                speed.speed.y = temp.x;
-                speed.speed.x = -1 * temp.y;
-            }
-            else
-            {
-                speed.speed.y = -1 * temp.x;
-                speed.speed.x = temp.y;
-            }
-        }
-        public void AerialDownPortalUp()
-        {
-            speed.speed.y = speed.fallMomentum;
-        }
-        public void AerialUpPortalForward()
-        {
-            temp = speed.speed;
-            if (speed.MovingRight())
-            {
-                speed.speed.x = temp.y;
-                speed.speed.y = temp.x;
-            }
-            else
-            {
-                speed.speed.x = -1 * temp.y;
-                speed.speed.y = -1 * temp.x;
-            }
-        }
-        public void AerialDownPortalForward()
-        {
-            temp = speed.speed;
-            if (speed.MovingRight())
-            {
-                speed.speed.x = speed.fallMomentum;
-                speed.speed.y = temp.x;
-            }
-            else
-            {
-                speed.speed.x = -1 * speed.fallMomentum;
-                speed.speed.y = -1 * temp.x;
-            }
-        }
-        public void AerialForwardPortalBack()
-        {
-            speed.speed.x *= -1;
-        }
-        public void AerialUpPortalBack()
-        {
-            temp = speed.speed;
-            if (speed.MovingRight())
-            {
-                speed.speed.x = -1 * temp.y;
-                speed.speed.y = -1 * temp.x;
-            }
-            else
-            {
-                speed.speed.x = temp.y;
-                speed.speed.y = temp.x;
-            }
-        }
-        public void AerialDownPortalBack()
-        {
-            temp = speed.speed;
-            if (speed.MovingRight())
-            {
-                speed.speed.x = -1 * speed.fallMomentum;
-                speed.speed.y = temp.x;
-            }
-            else
-            {
-                speed.speed.x = speed.fallMomentum;
-                speed.speed.y = -1 * temp.x;
-            }
-        }
-
-        //The End of the Portal ReMomentems
 
         //Portals Placement  names direction going, to direction going to
 
@@ -625,17 +492,6 @@ namespace Player
                     gameObject.transform.rotation = Quaternion.Euler(0, 0, 90);
                 }
             }
-        }
-
-        //Portal Deleting and stuff
-
-        public void StartDelete()
-        {
-            Invoke("Delete", gp * 2);
-        }
-        public void Delete()
-        {
-           // PortalDisappear.Invoke();
         }
     }
 }

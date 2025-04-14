@@ -30,8 +30,6 @@ namespace Player
 
             inputActions.PlayerActions.Jump.started += ctx => controller.Jump();
 
-            inputActions.PlayerActions.FastFall.started += ctx => controller.FastFall();
-
             inputActions.PlayerActions.Attack.canceled += ctx => controller.Attacks();
 
             inputActions.PlayerActions.Portal.started += ctx => controller.PortalDirect(stickDirection);

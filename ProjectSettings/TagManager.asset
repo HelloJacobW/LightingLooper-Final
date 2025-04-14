@@ -8,6 +8,7 @@ TagManager:
   - Ground
   - Portal1
   - Portal2
+  - Boundarie
   layers:
   - Default
   - TransparentFX

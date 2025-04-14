@@ -78,7 +78,7 @@ namespace Player
             if (isFalling) 
             {
                 speed.y -= fallSpeed * Time.deltaTime;
-                fallMomentum += speed.y * Time.deltaTime;
+                fallMomentum += Mathf.Abs(speed.y) * Time.deltaTime;
             }
         }
 

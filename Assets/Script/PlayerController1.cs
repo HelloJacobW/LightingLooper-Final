@@ -9,10 +9,12 @@ namespace Player
     {
         PlayerSpeed playerSpeed;
         Portal[] portals;
+        Teleport teleport;
         // Start is called before the first frame update
         void Start()
         {
             playerSpeed = GetComponent<PlayerSpeed>();
+            teleport = GetComponent<Teleport>();
             portals = FindObjectsOfType<Portal>();
         }
 
@@ -33,11 +35,6 @@ namespace Player
             playerSpeed.isFalling = true;
         }
 
-        public bool FastFall()
-        {
-            return true;
-        }
-
         public void Attacks()
         {
 
@@ -49,6 +46,14 @@ namespace Player
             string firstPortalPlace;
             string goingRight;
             string grounded;
+            if (playerSpeed.speed.x >= 0)
+            {
+                goingRight = "Ri";
+            }
+            else
+            {
+                goingRight = "Le";
+            }
             if(Mathf.Abs(direction.x) > Mathf.Abs(direction.y))
             {
                 if (direction.x > 0)
@@ -71,7 +76,7 @@ namespace Player
                     joystic = "Down";
                 }
             }
-            if (playerSpeed.isFalling)
+            if (!playerSpeed.isFalling)
             {
                 grounded = "OnGround";
             }
@@ -103,14 +108,10 @@ namespace Player
             }
             if (grounded.Equals("OnGround"))
             {
+                //print(firstPortalPlace + joystic + grounded);
                 switch(firstPortalPlace + joystic + grounded)
                 {
                     case "RightRightOnGround":
-                        foreach (Portal portal2 in portals)
-                        {
-                            portal2.BuildGroundPortalForward();
-                        }
-                        break;
                     case "LeftLeftOnGround":
                         foreach (Portal portal2 in portals)
                         {
@@ -118,41 +119,31 @@ namespace Player
                         }
                         break;
                     case "RightLeftOnGround":
-                        foreach (Portal portal2 in portals)
-                        {
-                            portal2.BuildGroundPortalBack();
-                        }
-                        break;
                     case "LeftRightOnGround":
+                        teleport.SetMomentum("GroundBack");
                         foreach (Portal portal2 in portals)
                         {
                             portal2.BuildGroundPortalBack();
                         }
                         break;
-                    case "UpRightOnGround":
+                    case "RightUpOnGround":
+                    case "LeftUpOnGround":
+                        teleport.SetMomentum("GroundUp");
                         foreach (Portal portal2 in portals)
                         {
                             portal2.BuildGroundPortalUp();
                         }
                         break;
-                    case "UpLeftOnGround":
-                        foreach (Portal portal2 in portals)
-                        {
-                            portal2.BuildGroundPortalUp();
-                        }
-                        break;
-                    case "DownRightOnGround":
+                    case "RightDownOnGround":
+                    case "LeftDownOnGround":
+                        Debug.Log("GroundPortal");
+                        teleport.SetMomentum("GroundDown");
                         foreach (Portal portal2 in portals)
                         {
                             portal2.BuildGroundPortalDown();
                         }
                         break;
-                    case "DownLeftOnGround":
-                        foreach (Portal portal2 in portals)
-                        {
-                            portal2.BuildGroundPortalDown();
-                        }
-                        break;
+                    default: break;
                 }
             }
             else
@@ -160,24 +151,99 @@ namespace Player
                 switch(firstPortalPlace + joystic)
                 {
                     case "RightRight":
-                        foreach (Portal portal2 in portals)
-                        {
-                            portal2.BuildAerialForwardPortalForward();
-                        }
-                        break;
                     case "LeftLeft":
                         foreach (Portal portal2 in portals)
                         {
                             portal2.BuildAerialForwardPortalForward();
                         }
                         break;
-                    case "DownRight":
+                    case "RightLeft":
+                    case "LeftRight":
+                        teleport.SetMomentum("AirForwardBack");
                         foreach (Portal portal2 in portals)
                         {
-                            portal2.BuildAerialForwardPortalForward();
+                            portal2.BuildAerialForwardPortalBack();
                         }
                         break;
+                    case "RightDown":
+                    case "LeftDown":
+                        teleport.SetMomentum("AirForwardDown");
+                        foreach (Portal portal2 in portals)
+                        {
+                            portal2.BuildAerialForwardPortalDown();
+                        }
+                        break;
+                    case "RightUp":
+                    case "LeftUp":
+                        teleport.SetMomentum("AirForwardUp");
+                        foreach (Portal portal2 in portals)
+                        {
+                            portal2.BuildAerialForwardPortalUp();
+                        }
+                        break;
+                    case "UpUp":
+                        foreach (Portal portal2 in portals)
+                        {
+                            portal2.BuildAerialUpPortalUp();
+                        }
+                        break;
+                    case "DownUp":
+                        teleport.SetMomentum("AirDownUp");
+                        foreach (Portal portal2 in portals)
+                        {
+                            portal2.BuildAerialDownPortalUp();
+                        }
+                        break;
+                    case "UpDown":
+                        teleport.SetMomentum("AirUpDown");
+                        foreach (Portal portal2 in portals)
+                        {
+                            portal2.BuildAerialUpPortalDown();
+                        }
+                        break;
+                    case "DownDown":
+                        foreach (Portal portal2 in portals)
+                        {
+                            portal2.BuildAerialDownPortalDown();
+                        }
+                        break;
+                    default: break;
                 }
+            }
+            switch(firstPortalPlace + joystic + goingRight)
+            {
+                case "DownRightRi":
+                case "DownLeftLe":
+                    teleport.SetMomentum("AirDownForward");
+                    foreach (Portal portal2 in portals)
+                    {
+                        portal2.BuildAerialDownPortalForward();
+                    }
+                    break;
+                case "DownRightLe":
+                case "DownLeftRi":
+                    teleport.SetMomentum("AirDownBack");
+                    foreach (Portal portal2 in portals)
+                    {
+                        portal2.BuildAerialDownPortalBack();
+                    }
+                    break;
+                case "UpRightRi":
+                case "UpLeftLe":
+                    teleport.SetMomentum("AirUpForward");
+                    foreach (Portal portal2 in portals)
+                    {
+                        portal2.BuildAerialUpPortalForward();
+                    }
+                    break;
+                case "UpRightLe":
+                case "UpLeftRi":
+                    teleport.SetMomentum("AirUpBack");
+                    foreach (Portal portal2 in portals)
+                    {
+                        portal2.BuildAerialUpPortalBack();
+                    }
+                    break;
             }
         }
     }
