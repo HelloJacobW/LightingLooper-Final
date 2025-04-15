@@ -42,15 +42,6 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "FastFall",
-                    "type": "Button",
-                    "id": "a27e788f-db18-43f2-a49f-a5862b0c03ca",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
                     "name": "StickRotation",
                     "type": "Value",
                     "id": "0f8d8bd2-0fc5-4cd3-a5e4-5d548d7c54e5",
@@ -102,17 +93,6 @@
                     "processors": "",
                     "groups": "",
                     "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "03aefd85-3840-40e1-88aa-99cb5a2935e7",
-                    "path": "<XInputController>/leftStick/down",
-                    "interactions": "Hold(duration=0.2)",
-                    "processors": "",
-                    "groups": "",
-                    "action": "FastFall",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

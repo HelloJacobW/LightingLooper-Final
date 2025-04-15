@@ -64,15 +64,6 @@ public partial class @APlayerControls: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": true
                 },
                 {
-                    ""name"": ""FastFall"",
-                    ""type"": ""Button"",
-                    ""id"": ""a27e788f-db18-43f2-a49f-a5862b0c03ca"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
                     ""name"": ""StickRotation"",
                     ""type"": ""Value"",
                     ""id"": ""0f8d8bd2-0fc5-4cd3-a5e4-5d548d7c54e5"",
@@ -129,17 +120,6 @@ public partial class @APlayerControls: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""03aefd85-3840-40e1-88aa-99cb5a2935e7"",
-                    ""path"": ""<XInputController>/leftStick/down"",
-                    ""interactions"": ""Hold(duration=0.2)"",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""FastFall"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""77c98687-11bb-4e1b-8400-8fb676fdf5fa"",
                     ""path"": ""<XInputController>/leftStick"",
                     ""interactions"": """",
@@ -188,7 +168,6 @@ public partial class @APlayerControls: IInputActionCollection2, IDisposable
         m_PlayerActions_Jump = m_PlayerActions.FindAction("Jump", throwIfNotFound: true);
         m_PlayerActions_Portal = m_PlayerActions.FindAction("Portal", throwIfNotFound: true);
         m_PlayerActions_Move = m_PlayerActions.FindAction("Move", throwIfNotFound: true);
-        m_PlayerActions_FastFall = m_PlayerActions.FindAction("FastFall", throwIfNotFound: true);
         m_PlayerActions_StickRotation = m_PlayerActions.FindAction("StickRotation", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
@@ -258,7 +237,6 @@ public partial class @APlayerControls: IInputActionCollection2, IDisposable
     private readonly InputAction m_PlayerActions_Jump;
     private readonly InputAction m_PlayerActions_Portal;
     private readonly InputAction m_PlayerActions_Move;
-    private readonly InputAction m_PlayerActions_FastFall;
     private readonly InputAction m_PlayerActions_StickRotation;
     public struct PlayerActionsActions
     {
@@ -268,7 +246,6 @@ public partial class @APlayerControls: IInputActionCollection2, IDisposable
         public InputAction @Jump => m_Wrapper.m_PlayerActions_Jump;
         public InputAction @Portal => m_Wrapper.m_PlayerActions_Portal;
         public InputAction @Move => m_Wrapper.m_PlayerActions_Move;
-        public InputAction @FastFall => m_Wrapper.m_PlayerActions_FastFall;
         public InputAction @StickRotation => m_Wrapper.m_PlayerActions_StickRotation;
         public InputActionMap Get() { return m_Wrapper.m_PlayerActions; }
         public void Enable() { Get().Enable(); }
@@ -291,9 +268,6 @@ public partial class @APlayerControls: IInputActionCollection2, IDisposable
             @Move.started += instance.OnMove;
             @Move.performed += instance.OnMove;
             @Move.canceled += instance.OnMove;
-            @FastFall.started += instance.OnFastFall;
-            @FastFall.performed += instance.OnFastFall;
-            @FastFall.canceled += instance.OnFastFall;
             @StickRotation.started += instance.OnStickRotation;
             @StickRotation.performed += instance.OnStickRotation;
             @StickRotation.canceled += instance.OnStickRotation;
@@ -313,9 +287,6 @@ public partial class @APlayerControls: IInputActionCollection2, IDisposable
             @Move.started -= instance.OnMove;
             @Move.performed -= instance.OnMove;
             @Move.canceled -= instance.OnMove;
-            @FastFall.started -= instance.OnFastFall;
-            @FastFall.performed -= instance.OnFastFall;
-            @FastFall.canceled -= instance.OnFastFall;
             @StickRotation.started -= instance.OnStickRotation;
             @StickRotation.performed -= instance.OnStickRotation;
             @StickRotation.canceled -= instance.OnStickRotation;
@@ -388,7 +359,6 @@ public partial class @APlayerControls: IInputActionCollection2, IDisposable
         void OnJump(InputAction.CallbackContext context);
         void OnPortal(InputAction.CallbackContext context);
         void OnMove(InputAction.CallbackContext context);
-        void OnFastFall(InputAction.CallbackContext context);
         void OnStickRotation(InputAction.CallbackContext context);
     }
     public interface IUIActions
