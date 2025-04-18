@@ -113,6 +113,7 @@ namespace Player
                 {
                     case "RightRightOnGround":
                     case "LeftLeftOnGround":
+                        teleport.SetMomentum("ForwardForward");
                         foreach (Portal portal2 in portals)
                         {
                             portal2.BuildGroundPortalForward();
@@ -152,6 +153,7 @@ namespace Player
                 {
                     case "RightRight":
                     case "LeftLeft":
+                        teleport.SetMomentum("AirForwardForward");
                         foreach (Portal portal2 in portals)
                         {
                             portal2.BuildAerialForwardPortalForward();
@@ -182,6 +184,7 @@ namespace Player
                         }
                         break;
                     case "UpUp":
+                        teleport.SetMomentum("AirUpUp");
                         foreach (Portal portal2 in portals)
                         {
                             portal2.BuildAerialUpPortalUp();
@@ -202,6 +205,7 @@ namespace Player
                         }
                         break;
                     case "DownDown":
+                        teleport.SetMomentum("AirDownDown");
                         foreach (Portal portal2 in portals)
                         {
                             portal2.BuildAerialDownPortalDown();

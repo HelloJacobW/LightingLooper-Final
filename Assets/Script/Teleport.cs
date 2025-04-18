@@ -69,22 +69,15 @@ namespace Player
                         break;
                     default: break;
                 }
-                momentum = "Nada";
+                momentum = "";
             }
         }
         //Portal Change Momentums Names Direction going, to direction going to
         public void GroundPortalDown()
         {
-            if (speed.MovingRight())
-            {
-                temp = speed.speed;
-                speed.speed.y = -1 * speed.speed.x;
-            }
-            else
-            {
-                temp = speed.speed;
-                speed.speed.y = speed.speed.x;
-            }
+            print("Portal Down");
+            speed.speed.x *= 0;
+            speed.speed.y = -0.002f;
         }
         public void GroundPortalUp()
         {
