@@ -54,6 +54,7 @@ namespace Player
                 rightStop[1] = true;
                 canPortal = false;
                 if (speed.x > 0) rightStop[0] = true;
+                else rightStop[0] = false;
                 speed.x = 0;
             }
         }

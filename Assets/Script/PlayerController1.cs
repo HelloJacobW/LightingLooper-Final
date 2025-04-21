@@ -46,6 +46,10 @@ namespace Player
             string firstPortalPlace;
             string goingRight;
             string grounded;
+            foreach (Portal portal2 in portals)
+            {
+                portal2.gameObject.SetActive(true);
+            }
             if (playerSpeed.speed.x >= 0)
             {
                 goingRight = "Ri";

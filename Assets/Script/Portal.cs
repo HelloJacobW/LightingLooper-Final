@@ -1,7 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Tilemaps;
+
 namespace Player
 {
     public class Portal : MonoBehaviour
@@ -12,14 +15,17 @@ namespace Player
         private float gp = 0.75f;
         public GameObject PlayerGameObject;
         public Event PortalAppear = new Event();
+        public Teleport tele;
+        public GameObject floor;
+        public TilemapCollider2D floorCollider;
+        public CircleCollider2D portalCollider;
         void Start()
         {
             speed = FindFirstObjectByType<PlayerSpeed>();
             if(gameObject.CompareTag("Portal1")) firstPortal = true;
-        }
-        private void Update()
-        {
-            playPos = new Vector2(PlayerGameObject.transform.position.x,PlayerGameObject.transform.position.y);
+            tele = FindFirstObjectByType<Teleport>();
+            floorCollider = floor.GetComponent<TilemapCollider2D>();
+            portalCollider = gameObject.GetComponent<CircleCollider2D>();
         }
 
         //Portals Placement  names direction going, to direction going to
@@ -492,6 +498,19 @@ namespace Player
                     gameObject.transform.rotation = Quaternion.Euler(0, 0, 90);
                 }
             }
+        }
+        //Kill portal if in wall
+        private void Update()
+        {
+            playPos = new Vector2(PlayerGameObject.transform.position.x,PlayerGameObject.transform.position.y);
+         //   if(floor != null && floorCollider.bounds.Intersects(portalCollider.bounds))
+          //  {
+          //      tele.DestroyPortals();
+          //  }
+        }
+        public void KillPortal()
+        {
+            gameObject.SetActive(false);
         }
     }
 }

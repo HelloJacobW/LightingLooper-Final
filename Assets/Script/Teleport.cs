@@ -85,11 +85,13 @@ namespace Player
             {
                 temp = speed.speed;
                 speed.speed.y = temp.x;
+                speed.speed.x = temp.x / 2;
             }
             else
             {
                 temp = speed.speed;
                 speed.speed.y = -1 * speed.speed.x;
+                speed.speed.x = temp.x / 2;
             }
         }
         public void GroundPortalBack()
@@ -130,7 +132,7 @@ namespace Player
         }
         public void AerialDownPortalUp()
         {
-            speed.speed.y = speed.fallMomentum;
+            speed.speed.y = (speed.fallMomentum + -1 * temp.y) / 2;
         }
         public void AerialUpPortalForward()
         {
@@ -138,12 +140,12 @@ namespace Player
             if (speed.MovingRight())
             {
                 speed.speed.x = temp.y;
-                speed.speed.y = temp.x;
+                speed.speed.y = temp.x/2;
             }
             else
             {
                 speed.speed.x = -1 * temp.y;
-                speed.speed.y = -1 * temp.x;
+                speed.speed.y = -1 * temp.x/2;
             }
         }
         public void AerialDownPortalForward()
@@ -151,13 +153,13 @@ namespace Player
             temp = speed.speed;
             if (speed.MovingRight())
             {
-                speed.speed.x = speed.fallMomentum;
+                speed.speed.x = (speed.fallMomentum + -1 * temp.y) / 2;
                 speed.speed.y = temp.x;
             }
             else
             {
-                speed.speed.x = -1 * speed.fallMomentum;
-                speed.speed.y = -1 * temp.x;
+                speed.speed.x = temp.y;
+                speed.speed.y = -1 * (speed.fallMomentum + -1 * temp.y) / 2;
             }
         }
         public void AerialForwardPortalBack()
@@ -170,12 +172,12 @@ namespace Player
             if (speed.MovingRight())
             {
                 speed.speed.x = -1 * temp.y;
-                speed.speed.y = -1 * temp.x;
+                speed.speed.y = -1 * temp.x / 2;
             }
             else
             {
                 speed.speed.x = temp.y;
-                speed.speed.y = temp.x;
+                speed.speed.y = temp.x / 2;
             }
         }
         public void AerialDownPortalBack()
@@ -183,12 +185,12 @@ namespace Player
             temp = speed.speed;
             if (speed.MovingRight())
             {
-                speed.speed.x = -1 * speed.fallMomentum;
+                speed.speed.x = -1 * (speed.fallMomentum + -1 * temp.y)/2;
                 speed.speed.y = temp.x;
             }
             else
             {
-                speed.speed.x = speed.fallMomentum;
+                speed.speed.x = (speed.fallMomentum + -1 * temp.y)/2;
                 speed.speed.y = -1 * temp.x;
             }
         }
@@ -200,6 +202,13 @@ namespace Player
             if (other.CompareTag("Boundarie"))
             {
                 gameObject.transform.position = Vector2.zero;
+            }
+        }
+        public void DestroyPortals()
+        {
+            foreach (Portal portal2 in portal)
+            {
+                portal2.KillPortal();
             }
         }
     }
