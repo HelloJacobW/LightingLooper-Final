@@ -26,7 +26,7 @@ namespace Player
         }
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            if (collision.CompareTag("Portal1"))
+            if (collision.gameObject.CompareTag("Portal1")&&gameObject.CompareTag("Player"))
             {
                 gameObject.transform.position = SecondPortal.transform.position;
                 switch (momentum)
@@ -104,12 +104,12 @@ namespace Player
             if (speed.MovingRight())
             {
                 speed.speed.y = -1 * temp.x;
-                speed.speed.x = -1 * temp.y;
+                speed.speed.x =  temp.y;
             }
             else
             {
                 speed.speed.y = temp.x;
-                speed.speed.x = temp.y;
+                speed.speed.x = -1 * temp.y;
             }
         }
         public void AerialUpPortalDown()
@@ -172,12 +172,12 @@ namespace Player
             if (speed.MovingRight())
             {
                 speed.speed.x = -1 * temp.y;
-                speed.speed.y = -1 * temp.x / 2;
+                speed.speed.y = -1 * temp.x / 3;
             }
             else
             {
                 speed.speed.x = temp.y;
-                speed.speed.y = temp.x / 2;
+                speed.speed.y = temp.x / 3;
             }
         }
         public void AerialDownPortalBack()

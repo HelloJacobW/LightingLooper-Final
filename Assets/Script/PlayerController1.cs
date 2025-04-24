@@ -7,6 +7,7 @@ namespace Player
 {
     public class PlayerController : MonoBehaviour
     {
+        public GameObject Hitbox;
         PlayerSpeed playerSpeed;
         Portal[] portals;
         Teleport teleport;
@@ -37,7 +38,7 @@ namespace Player
 
         public void Attacks()
         {
-
+            Hitbox.SetActive(true);
         }
 
         public void PortalDirect(Vector2 direction)
@@ -141,7 +142,7 @@ namespace Player
                         break;
                     case "RightDownOnGround":
                     case "LeftDownOnGround":
-                        Debug.Log("GroundPortal");
+                        //Debug.Log("GroundPortal");
                         teleport.SetMomentum("GroundDown");
                         foreach (Portal portal2 in portals)
                         {

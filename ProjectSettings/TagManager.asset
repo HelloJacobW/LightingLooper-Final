@@ -9,6 +9,8 @@ TagManager:
   - Portal1
   - Portal2
   - Boundarie
+  - WallCollider
+  - GroundCollider
   layers:
   - Default
   - TransparentFX
