@@ -104,12 +104,12 @@ namespace Player
             if (speed.MovingRight())
             {
                 speed.speed.y = -1 * temp.x;
-                speed.speed.x =  temp.y;
+                speed.speed.x =  Mathf.Abs(temp.y);
             }
             else
             {
                 speed.speed.y = temp.x;
-                speed.speed.x = -1 * temp.y;
+                speed.speed.x = -1 * Mathf.Abs(temp.y);
             }
         }
         public void AerialUpPortalDown()
