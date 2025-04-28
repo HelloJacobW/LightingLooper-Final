@@ -114,7 +114,7 @@ namespace Player
             if (grounded.Equals("OnGround"))
             {
                 //print(firstPortalPlace + joystic + grounded);
-                switch(firstPortalPlace + joystic + grounded)
+                switch (firstPortalPlace + joystic + grounded)
                 {
                     case "RightRightOnGround":
                     case "LeftLeftOnGround":
@@ -154,6 +154,7 @@ namespace Player
             }
             else
             {
+                playerSpeed.airPortals--;
                 switch(firstPortalPlace + joystic)
                 {
                     case "RightRight":

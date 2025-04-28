@@ -1,3 +1,4 @@
+using Player;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,16 +8,22 @@ public class PlayerUI : MonoBehaviour
     public Image[] heartImages;
     public Image[] offHeartImages;
     private int health = 0;
+    public PlayerSpeed speed;
+    public Image[] manaImages;
+    public Image[] manaOffImages;
+    private int mana = 0;
 
     void Awake()
     {
         playerHealth = FindFirstObjectByType<PlayerHealth>();
+        speed = FindFirstObjectByType<PlayerSpeed>();
     }
 
     void Update()
     {
-        if (!playerHealth) return;
+        if (!playerHealth || !speed) return;
         if (health != playerHealth.health) UpdateHealth();
+        if (mana != speed.airPortals) UpdateMana();
     }
     void UpdateHealth()
     {
@@ -33,6 +40,24 @@ public class PlayerUI : MonoBehaviour
             {
                 heartImages[i].enabled = false;
                 offHeartImages[i].enabled = true;
+            }
+        }
+    }
+    void UpdateMana()
+    {
+        mana = speed.airPortals;
+
+        for (int i = 0; i < manaImages.Length; i++)
+        {
+            if (i < mana)
+            {
+                manaImages[i].enabled = true;
+                manaOffImages[i].enabled = false;
+            }
+            else
+            {
+                manaImages[i].enabled = false;
+                manaOffImages[i].enabled = true;
             }
         }
     }

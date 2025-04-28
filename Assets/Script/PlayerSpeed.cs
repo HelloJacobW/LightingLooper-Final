@@ -11,7 +11,8 @@ namespace Player
         public float fallMomentum = 0;
         public bool[] rightStop = {false, false};
         public bool canPortal = true;
-        [SerializeField]private float speedGain = 0.01f;
+        public int airPortals = 3;
+        [SerializeField] private float speedGain = 0.01f;
         [SerializeField] private float speedLoss = 0.1f;
         [SerializeField] private float fallSpeed = 0.1f;
         [SerializeField] private float maxXSpeed = 0.5f;
@@ -43,6 +44,7 @@ namespace Player
         {
             if (other.gameObject.CompareTag("Ground"))
             {
+                airPortals = 3;
                 //Debug.Log("hitGround");
                 speed.y = 0f;
                 isFalling = false;
