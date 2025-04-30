@@ -52,7 +52,7 @@ namespace Player
             }
             if (other.gameObject.CompareTag("Wall"))
             {
-                Debug.Log("hit wall");
+                //Debug.Log("hit wall");
                 rightStop[1] = true;
                 canPortal = false;
                 if (speed.x > 0) rightStop[0] = true;
@@ -64,13 +64,13 @@ namespace Player
         {
             if (other.gameObject.CompareTag("Ground"))
             {
-                Debug.Log("offGround");
+                //Debug.Log("offGround");
                 isFalling = true;
                 fallMomentum = 0f;
             }
             if (other.gameObject.CompareTag("Wall"))
             {
-                Debug.Log("off wall");
+                //Debug.Log("off wall");
                 rightStop[1] = false;
                 canPortal = true;
             }
@@ -82,6 +82,10 @@ namespace Player
             {
                 speed.y -= fallSpeed * Time.deltaTime;
                 fallMomentum += Mathf.Abs(speed.y) * Time.deltaTime;
+            }
+            if(speed.y < 0f)
+            {
+                fallMomentum = 0;
             }
         }
 

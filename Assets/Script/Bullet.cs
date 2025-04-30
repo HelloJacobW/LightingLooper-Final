@@ -17,4 +17,12 @@ public class Bullet : MonoBehaviour
         float rot = Mathf.Atan2(-direction.y, -direction.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0, 0, rot + 90);
     }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            PlayerHealth health = FindFirstObjectByType<PlayerHealth>();
+            health.Hit();
+        }
+    }
 }

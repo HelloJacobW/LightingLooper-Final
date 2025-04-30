@@ -12,6 +12,7 @@ namespace Player
         public Portal[] portal;
         private PlayerSpeed speed;
         private string momentum;
+        private string secondComing;
         private Vector2 temp;
 
         private void Start()
@@ -23,6 +24,7 @@ namespace Player
         public void SetMomentum(string momentums)
         {
             momentum = momentums;
+            secondComing = momentums;
         }
         private void OnTriggerEnter2D(Collider2D collision)
         {
@@ -47,6 +49,7 @@ namespace Player
                         AerialUpPortalDown();
                         break;
                     case "AirForwardBack":
+                        print("ForwardBack");
                         AerialForwardPortalBack();
                         break;
                     case "AirForwardUp":
@@ -70,7 +73,12 @@ namespace Player
                     default: break;
                 }
                 momentum = "";
+                Invoke("ComeBack", 0.1f);
             }
+        }
+        private void ComeBack()
+        {
+            momentum = secondComing;
         }
         //Portal Change Momentums Names Direction going, to direction going to
         public void GroundPortalDown()

@@ -31,9 +31,9 @@ public class GameFeel : MonoBehaviour
         if (cameraShakeTime > 0f)
         {
             cameraShakeTime -= Time.deltaTime;
-            Vector3 newCamerPosition = new Vector3();
-            newCamerPosition.x = Random.Range(-0.1f, 0.1f);
-            newCamerPosition.y = Random.Range(-0.1f, 0.1f);
+            Vector3 newCamerPosition = Camera.main.transform.position;
+            newCamerPosition.x += Random.Range(-0.1f, 0.1f);
+            newCamerPosition.y += Random.Range(-0.1f, 0.1f);
             newCamerPosition.z = -10;
             Camera.main.transform.position = newCamerPosition;
         }

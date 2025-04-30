@@ -11,6 +11,8 @@ TagManager:
   - Boundarie
   - WallCollider
   - GroundCollider
+  - Bullet
+  - Orb
   layers:
   - Default
   - TransparentFX

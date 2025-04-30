@@ -17,12 +17,16 @@ public class RangedEnemyScript : MonoBehaviour
         float distance = Vector2.Distance(transform.position, player.transform.position);
         if(distance < 10)
         {
-            timer += Time.deltaTime;
-            if(timer > 2)
-            {
-                timer = 0;
-                Instantiate(bullet, bulletPos.position, Quaternion.identity);
-            }
+            Shoot();
+        }
+    }
+    public void Shoot()
+    {
+        timer += Time.deltaTime;
+        if (timer > 2)
+        {
+            timer = 0;
+            Instantiate(bullet, bulletPos.position, Quaternion.identity);
         }
     }
 }
