@@ -83,7 +83,7 @@ namespace Player
                 speed.y -= fallSpeed * Time.deltaTime;
                 fallMomentum += Mathf.Abs(speed.y) * Time.deltaTime;
             }
-            if(speed.y < 0f)
+            if(speed.y > 0.1f)
             {
                 fallMomentum = 0;
             }

@@ -1,0 +1,17 @@
+using System.Collections;
+using System.Collections.Generic;
+using Unity.VisualScripting;
+using UnityEngine;
+
+public class EnemyHealth : MonoBehaviour
+{
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        print("In enemy");
+        if (collision.gameObject.CompareTag("HitBox"))
+        {
+            //Tell forceField to be less
+            Destroy(gameObject);
+        }
+    }
+}

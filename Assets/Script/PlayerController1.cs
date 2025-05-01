@@ -158,7 +158,6 @@ namespace Player
             }
             else
             {
-                print(firstPortalPlace + joystic + goingRight);
                 playerSpeed.airPortals--;
                 switch(firstPortalPlace + joystic)
                 {

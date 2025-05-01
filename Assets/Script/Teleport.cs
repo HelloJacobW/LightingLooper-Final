@@ -49,7 +49,6 @@ namespace Player
                         AerialUpPortalDown();
                         break;
                     case "AirForwardBack":
-                        print("ForwardBack");
                         AerialForwardPortalBack();
                         break;
                     case "AirForwardUp":
