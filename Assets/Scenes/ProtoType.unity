@@ -644,7 +644,7 @@ TilemapRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
-  m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
+  m_ChunkCullingBounds: {x: 0.0031446815, y: 0.0031446815, z: 0}
   m_MaxChunkCount: 16
   m_MaxFrameAge: 16
   m_SortOrder: 0
@@ -1186,6 +1186,7 @@ GameObject:
   - component: {fileID: 826377679}
   - component: {fileID: 826377681}
   - component: {fileID: 826377680}
+  - component: {fileID: 826377682}
   m_Layer: 0
   m_Name: Circle (1)
   m_TagString: Untagged
@@ -1296,6 +1297,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &826377682
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 826377678}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c85fea6b60ffa343afc47016432c26b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  push: 0
+  knockBack: 0
 --- !u!1 &886212851
 GameObject:
   m_ObjectHideFlags: 0
@@ -1307,6 +1322,7 @@ GameObject:
   - component: {fileID: 886212853}
   - component: {fileID: 886212852}
   - component: {fileID: 886212854}
+  - component: {fileID: 886212855}
   m_Layer: 0
   m_Name: PortalScript
   m_TagString: Portal1
@@ -1384,6 +1400,20 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.5
+--- !u!114 &886212855
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 886212851}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2486937c40d4384188320b11542f598, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wallTilemap: {fileID: 1562285183}
+  floorTilemap: {fileID: 1176905933}
 --- !u!1 &896085621
 GameObject:
   m_ObjectHideFlags: 0
@@ -1596,6 +1626,7 @@ GameObject:
   - component: {fileID: 999648337}
   - component: {fileID: 999648336}
   - component: {fileID: 999648338}
+  - component: {fileID: 999648339}
   m_Layer: 0
   m_Name: PortalScript (1)
   m_TagString: Portal2
@@ -1673,6 +1704,20 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.5
+--- !u!114 &999648339
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 999648335}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2486937c40d4384188320b11542f598, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wallTilemap: {fileID: 1562285183}
+  floorTilemap: {fileID: 1176905933}
 --- !u!1 &1052344856
 GameObject:
   m_ObjectHideFlags: 0

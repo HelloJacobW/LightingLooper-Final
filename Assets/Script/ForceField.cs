@@ -14,6 +14,7 @@ public class ForceField : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player");
         orb = GameObject.FindGameObjectWithTag("Orb");
+        speed = FindFirstObjectByType<PlayerSpeed>();
         push = false;
         knockBack = 0.2f;
     }
@@ -23,18 +24,18 @@ public class ForceField : MonoBehaviour
             switch (Direction())
             {
                 case "RightUp":
-                    speed.speed.x += knockBack * Time.deltaTime;
+                    speed.speed.x -= knockBack * Time.deltaTime;
                     speed.speed.y += knockBack * Time.deltaTime;
                     break;
                 case "LeftUp":
-                    speed.speed.x -= knockBack * Time.deltaTime;
+                    speed.speed.x += knockBack * Time.deltaTime;
                     speed.speed.y += knockBack * Time.deltaTime;
                     break;
                 case "Right":
-                    speed.speed.x += knockBack * Time.deltaTime;
+                    speed.speed.x -= knockBack * Time.deltaTime;
                     break;
                 case "Left":
-                    speed.speed.x -= knockBack * Time.deltaTime;
+                    speed.speed.x += knockBack * Time.deltaTime;
                     break;
                 default:
                     break;
@@ -42,14 +43,36 @@ public class ForceField : MonoBehaviour
     }
     private string Direction()
     {
-        return "direction";
+        Vector2 PlayPos = player.transform.position;
+        Vector2 OrbPos = orb.transform.position;
+        if (speed.isFalling)
+        {
+            if (PlayPos.y > OrbPos.y)
+                if (PlayPos.x > OrbPos.x)
+                    return "LeftUp";
+                else
+                    return "RightUp";
+            else
+                if (PlayPos.x > OrbPos.x)
+                return "Left";
+            else
+                return "Right";
+        
+        }
+        else
+            if (PlayPos.x > OrbPos.x)
+            return "Left";
+        else
+            return "Right";
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        Debug.Log("Entered");
         push = true;
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
+        Debug.Log("Exited");
         push = false;
     }
 }

@@ -13,6 +13,7 @@ namespace Player
         public Vector2 playPos;
         private bool firstPortal;
         private float gp = 0.75f;
+        private PortalChecker check;
         public GameObject PlayerGameObject;
         public Event PortalAppear = new Event();
         public Teleport tele;
@@ -21,6 +22,7 @@ namespace Player
         public CircleCollider2D portalCollider;
         void Start()
         {
+            check = GetComponent<PortalChecker>();
             speed = FindFirstObjectByType<PlayerSpeed>();
             if(gameObject.CompareTag("Portal1")) firstPortal = true;
             tele = FindFirstObjectByType<Teleport>();
@@ -58,6 +60,7 @@ namespace Player
                     gameObject.transform.rotation = Quaternion.Euler(0, 0, 0);
                 }
             }
+            check.CheckPortal(gameObject.transform.position);
         }
 
         public void BuildGroundPortalDown()
@@ -88,6 +91,7 @@ namespace Player
                     gameObject.transform.rotation = Quaternion.Euler(0, 0, 90);
                 }
             }
+            check.CheckPortal(gameObject.transform.position);
         }
 
         public void BuildGroundPortalUp()
@@ -118,6 +122,7 @@ namespace Player
                     gameObject.transform.rotation = Quaternion.Euler(0, 0, 90);
                 }
             }
+            check.CheckPortal(gameObject.transform.position);
         }
 
         public void BuildGroundPortalBack()
@@ -148,6 +153,7 @@ namespace Player
                     gameObject.transform.rotation = Quaternion.Euler(0, 0, 0);
                 }
             }
+            check.CheckPortal(gameObject.transform.position);
         }
         public void BuildAerialForwardPortalForward()
         {
@@ -177,6 +183,7 @@ namespace Player
                     gameObject.transform.rotation = Quaternion.Euler(0, 0, 0);
                 }
             }
+            check.CheckPortal(gameObject.transform.position);
         }
 
         public void BuildAerialDownPortalForward()
@@ -207,6 +214,7 @@ namespace Player
                     gameObject.transform.rotation = Quaternion.Euler(0, 0, 0);
                 }
             }
+            check.CheckPortal(gameObject.transform.position);
         }
 
         public void BuildAerialUpPortalForward()
@@ -237,6 +245,7 @@ namespace Player
                     gameObject.transform.rotation = Quaternion.Euler(0, 0, 0);
                 }
             }
+            check.CheckPortal(gameObject.transform.position);
         }
         public void BuildAerialForwardPortalDown()
         {
@@ -266,6 +275,7 @@ namespace Player
                     gameObject.transform.rotation = Quaternion.Euler(0, 0, 90);
                 }
             }
+            check.CheckPortal(gameObject.transform.position);
         }
         public void BuildAerialDownPortalDown()
         {
@@ -295,6 +305,7 @@ namespace Player
                     gameObject.transform.rotation = Quaternion.Euler(0, 0, 90);
                 }
             }
+            check.CheckPortal(gameObject.transform.position);
         }
         public void BuildAerialUpPortalDown()
         {
@@ -324,6 +335,7 @@ namespace Player
                     gameObject.transform.rotation = Quaternion.Euler(0, 0, 90);
                 }
             }
+            check.CheckPortal(gameObject.transform.position);
         }
         public void BuildAerialForwardPortalBack()
         {
@@ -353,6 +365,7 @@ namespace Player
                     gameObject.transform.rotation = Quaternion.Euler(0, 0, 0);
                 }
             }
+            check.CheckPortal(gameObject.transform.position);
         }
         public void BuildAerialDownPortalBack()
         {
@@ -382,6 +395,7 @@ namespace Player
                     gameObject.transform.rotation = Quaternion.Euler(0, 0, 0);
                 }
             }
+            check.CheckPortal(gameObject.transform.position);
         }
         public void BuildAerialUpPortalBack()
         {
@@ -411,6 +425,7 @@ namespace Player
                     gameObject.transform.rotation = Quaternion.Euler(0, 0, 0);
                 }
             }
+            check.CheckPortal(gameObject.transform.position);
         }
         public void BuildAerialForwardPortalUp()
         {
@@ -440,6 +455,7 @@ namespace Player
                     gameObject.transform.rotation = Quaternion.Euler(0, 0, 90);
                 }
             }
+            check.CheckPortal(gameObject.transform.position);
         }
         public void BuildAerialDownPortalUp()
         {
@@ -469,6 +485,7 @@ namespace Player
                     gameObject.transform.rotation = Quaternion.Euler(0, 0, 90);
                 }
             }
+            check.CheckPortal(gameObject.transform.position);
         }
         public void BuildAerialUpPortalUp()
         {
@@ -498,8 +515,13 @@ namespace Player
                     gameObject.transform.rotation = Quaternion.Euler(0, 0, 90);
                 }
             }
+            check.CheckPortal(gameObject.transform.position);
         }
         //Kill portal if in wall
+        private void OnEnable()
+        {
+            playPos = new Vector2(PlayerGameObject.transform.position.x, PlayerGameObject.transform.position.y);
+        }
         private void Update()
         {
             playPos = new Vector2(PlayerGameObject.transform.position.x,PlayerGameObject.transform.position.y);
