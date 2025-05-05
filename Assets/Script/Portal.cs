@@ -17,17 +17,12 @@ namespace Player
         public GameObject PlayerGameObject;
         public Event PortalAppear = new Event();
         public Teleport tele;
-        public GameObject floor;
-        public TilemapCollider2D floorCollider;
-        public CircleCollider2D portalCollider;
         void Start()
         {
             check = GetComponent<PortalChecker>();
             speed = FindFirstObjectByType<PlayerSpeed>();
             if(gameObject.CompareTag("Portal1")) firstPortal = true;
             tele = FindFirstObjectByType<Teleport>();
-            floorCollider = floor.GetComponent<TilemapCollider2D>();
-            portalCollider = gameObject.GetComponent<CircleCollider2D>();
         }
 
         //Portals Placement  names direction going, to direction going to

@@ -209,6 +209,7 @@ namespace Player
             if (other.CompareTag("Boundarie"))
             {
                 gameObject.transform.position = Vector2.zero;
+                speed.speed.y = -0.01f;
             }
         }
         public void DestroyPortals()

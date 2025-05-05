@@ -33,19 +33,19 @@ namespace Player
         {
             speed.x = Mathf.Clamp(speed.x,minXSpeed, maxXSpeed);
                 speed.x += speedGain * input.GetMove() * Time.deltaTime;
+            speed.x = Mathf.Clamp(speed.x, minXSpeed, maxXSpeed);
         }
         public void loseSpeed()
         {
-            if (speed.x > 0) speed.x -= speedLoss * Time.deltaTime;
-            else if (speed.x < 0) speed.x += speedLoss * Time.deltaTime;
+            speed.x = speed.x / ((1f + speedLoss));
         }
 
         public void OnCollisionEnter2D(Collision2D other)
         {
             if (other.gameObject.CompareTag("Ground"))
             {
+              //  Debug.Log("hitGround");
                 airPortals = 5;
-                //Debug.Log("hitGround");
                 speed.y = 0f;
                 isFalling = false;
                 fallMomentum = 0f;
@@ -77,7 +77,7 @@ namespace Player
         }
         private void Update()
         {
-            speed.y = Mathf.Clamp(speed.y,-1f,15f);
+            speed.y = Mathf.Clamp(speed.y,-0.6f,1f);
             if (isFalling) 
             {
                 speed.y -= fallSpeed * Time.deltaTime;

@@ -11,8 +11,10 @@ namespace Player
         private APlayerControls inputActions;
         private PlayerSpeed speed;
         private PlayerController controller;
+        private PlayerAnimation animate;
         [SerializeField] private Vector2 stickDirection;
         [SerializeField] private float moveInput;
+        private bool loseSpeed = false;
         
 
          void Awake()
@@ -20,6 +22,7 @@ namespace Player
             speed = GetComponent<PlayerSpeed>();
             controller = GetComponent<PlayerController>();
             inputActions = new APlayerControls();
+            animate = GetComponent<PlayerAnimation>();
             stickDirection = Vector2.zero;
         }
         void Start()
@@ -52,12 +55,14 @@ namespace Player
             if (moveInput == 0 || IsStickBackwards())
             {
                 //Debug.Log("LoseSpeed from stick");
-                speed.loseSpeed();
+                loseSpeed = true;
             }
+            else
+                loseSpeed = false;
         }
         public bool IsStickBackwards()
         {
-            //print((moveInput / Mathf.Abs(moveInput)) + "  " + (speed.speed.x / Mathf.Abs(speed.speed.x)));
+           // print((moveInput / Mathf.Abs(moveInput)) + "  " + (speed.speed.x / Mathf.Abs(speed.speed.x)));
             return moveInput != 0 && moveInput / Mathf.Abs(moveInput) != speed.speed.x / Mathf.Abs(speed.speed.x);
         }
         
@@ -72,13 +77,22 @@ namespace Player
         // Update is called once per frame
         void Update()
         {
+            Debug.Log(IsStickBackwards());
+            if (moveInput == 0 || IsStickBackwards())
+            {
+                Debug.Log("LoseSpeed from stick");
+                loseSpeed = true;
+            }
+            else
+                loseSpeed = false;
             if (!speed.rightStop[1] || (moveInput < 0 && speed.rightStop[0]) || (moveInput > 0 && !speed.rightStop[0]))
             {
                 speed.gainSpeed();
-               // Debug.Log("Lose Speed");
+                // Debug.Log("Lose Speed");
             }
-            if (speed.isFalling)
+            if(speed.isFalling || loseSpeed)
             {
+                Debug.Log(loseSpeed);
                 speed.loseSpeed();
             }
         }

@@ -14,7 +14,7 @@ public class Lightning : MonoBehaviour
 
     void Update()
     {
-        if(speed.speed.x > 0.01 || speed.speed.y > 0.01)
+        if(Mathf.Abs(speed.speed.x) > 0.01 || Mathf.Abs(speed.speed.y) > 0.01)
         {
             lightning.SetActive(true);
         }

@@ -48,6 +48,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: ForeGround
+    uniqueID: 2096496347
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
