@@ -77,10 +77,10 @@ namespace Player
         // Update is called once per frame
         void Update()
         {
-            Debug.Log(IsStickBackwards());
+
             if (moveInput == 0 || IsStickBackwards())
             {
-                Debug.Log("LoseSpeed from stick");
+                //Debug.Log("LoseSpeed from stick");
                 loseSpeed = true;
             }
             else
@@ -92,7 +92,6 @@ namespace Player
             }
             if(speed.isFalling || loseSpeed)
             {
-                Debug.Log(loseSpeed);
                 speed.loseSpeed();
             }
         }
