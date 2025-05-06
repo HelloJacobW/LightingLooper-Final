@@ -14,11 +14,13 @@ namespace Player
         private string momentum;
         private string secondComing;
         private Vector2 temp;
+        private PlayerHealth health;
 
         private void Start()
         {
             portal = FindObjectsOfType<Portal>();
             speed = GetComponent<PlayerSpeed>();
+            health = GetComponent<PlayerHealth>();
             temp = Vector2.zero;
         }
         public void SetMomentum(string momentums)
@@ -210,6 +212,8 @@ namespace Player
             {
                 gameObject.transform.position = Vector2.zero;
                 speed.speed.y = -0.01f;
+                speed.speed.x = 0;
+                health.Hit();
             }
         }
         public void DestroyPortals()

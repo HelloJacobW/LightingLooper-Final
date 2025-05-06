@@ -16,7 +16,6 @@ public class ForceField : MonoBehaviour
         orb = GameObject.FindGameObjectWithTag("Orb");
         speed = FindFirstObjectByType<PlayerSpeed>();
         push = false;
-        knockBack = 0.2f;
     }
     private void Update()
     {
