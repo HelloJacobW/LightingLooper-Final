@@ -867,9 +867,9 @@ GameObject:
   m_Component:
   - component: {fileID: 595796047}
   - component: {fileID: 595796046}
-  - component: {fileID: 595796049}
   - component: {fileID: 595796048}
   - component: {fileID: 595796050}
+  - component: {fileID: 595796051}
   m_Layer: 0
   m_Name: Isometric Diamond
   m_TagString: Untagged
@@ -959,7 +959,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 4281018084407090467, guid: bb47590c470d85d478cb8a365255dad7, type: 3}
   bulletPos: {fileID: 1691409383}
---- !u!61 &595796049
+--- !u!114 &595796050
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 595796045}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b14d3adfbc3a8ea498c7ced562dfc727, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!61 &595796051
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -991,7 +1003,7 @@ BoxCollider2D:
     m_Bits: 4294967295
   m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_CompositeOperation: 2
+  m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
@@ -1005,18 +1017,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 0.5}
   m_EdgeRadius: 0
---- !u!114 &595796050
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 595796045}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b14d3adfbc3a8ea498c7ced562dfc727, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &705293381
 GameObject:
   m_ObjectHideFlags: 0
@@ -1346,9 +1346,6 @@ MonoBehaviour:
   playPos: {x: 0, y: 0}
   PlayerGameObject: {fileID: 1424620561}
   tele: {fileID: 0}
-  floor: {fileID: 1176905929}
-  floorCollider: {fileID: 0}
-  portalCollider: {fileID: 0}
 --- !u!4 &886212853
 Transform:
   m_ObjectHideFlags: 0
@@ -1650,9 +1647,6 @@ MonoBehaviour:
   playPos: {x: 0, y: 0}
   PlayerGameObject: {fileID: 1424620561}
   tele: {fileID: 0}
-  floor: {fileID: 1176905929}
-  floorCollider: {fileID: 0}
-  portalCollider: {fileID: 0}
 --- !u!4 &999648337
 Transform:
   m_ObjectHideFlags: 0
@@ -5693,7 +5687,7 @@ GameObject:
   - component: {fileID: 1201104753}
   - component: {fileID: 1201104755}
   - component: {fileID: 1201104757}
-  - component: {fileID: 1201104756}
+  - component: {fileID: 1201104758}
   m_Layer: 0
   m_Name: Hexagon Point Top
   m_TagString: Untagged
@@ -5784,7 +5778,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shield: {fileID: 2098607646}
   hitBox: {fileID: 341558045}
---- !u!61 &1201104756
+--- !u!114 &1201104757
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1201104752}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b14d3adfbc3a8ea498c7ced562dfc727, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!61 &1201104758
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5816,7 +5822,7 @@ BoxCollider2D:
     m_Bits: 4294967295
   m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_CompositeOperation: 2
+  m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
@@ -5830,18 +5836,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.8828125, y: 1}
   m_EdgeRadius: 0
---- !u!114 &1201104757
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1201104752}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b14d3adfbc3a8ea498c7ced562dfc727, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1248125578
 GameObject:
   m_ObjectHideFlags: 0
