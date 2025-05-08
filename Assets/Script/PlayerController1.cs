@@ -23,6 +23,10 @@ namespace Player
         void Update()
         {
             transform.Translate(playerSpeed.getSpeed(), Space.World);
+            if(playerSpeed.speed.x < 0f)
+                gameObject.transform.rotation = Quaternion.Euler(0, 180, 0);
+            else
+                gameObject.transform.rotation = Quaternion.Euler(0, 0, 0);
         }
 
         public void StartFall()

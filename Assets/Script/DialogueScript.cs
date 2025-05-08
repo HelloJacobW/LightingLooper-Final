@@ -9,7 +9,7 @@ public class DialogueScript : MonoBehaviour
     void Start()
     {
         if (dialogue)
-            Invoke("Dialogue", 2f);
+            Invoke("Dialogue", 10f);
     }
     
     private void Dialogue()
@@ -20,19 +20,19 @@ public class DialogueScript : MonoBehaviour
         {
             case 1:
                 dialogue.text = "I am Fiz and I'm here to explain to a player the controls";
-                Invoke("Dialogue", 4f);
+                Invoke("Dialogue", 5f);
                 break;
             case 2:
                 dialogue.text = "The basics, A is a puny jump, and X is attack. You can't jump that bump yet, but you will";
-                Invoke("Dialogue", 5f);
+                Invoke("Dialogue", 7f);
                 break;
             case 3:
                 dialogue.text = "Alright, the main point of the game. B is the portal button";
-                Invoke("Dialogue", 3f);
+                Invoke("Dialogue", 5f);
                 break;
             case 4:
                 dialogue.text = "It does different portals depending on where the joystic is and direction you are headed";
-                Invoke("Dialogue", 7f);
+                Invoke("Dialogue", 9f);
                 break;
             case 5:
                 dialogue.text = "Try to go forward then use portal up while grounded before the bump to jump it. Trust me, its way better than a jump.";
@@ -44,34 +44,34 @@ public class DialogueScript : MonoBehaviour
                 break;
             case 7:
                 dialogue.text = "I don't beleive you are trying hard enough :(";
-                Invoke("Dialogue", 1f);
+                Invoke("Dialogue", 3f);
                 break;
             case 8:
                 dialogue.text = "JUST GET OVER IT";
                 break;
             case 10:
                 dialogue.text = "Well Done";
-                Invoke("Dialogue", 2f);
+                Invoke("Dialogue", 4f);
                 break;
             case 11:
                 dialogue.text = "The goal of the game is to destroy the Enemy Orb";
-                Invoke("Dialogue", 3f);
+                Invoke("Dialogue", 7f);
                 break;
             case 12:
                 dialogue.text = "It has a force field, I garentee you will have a hard time with it.";
-                Invoke("Dialogue", 6f);
+                Invoke("Dialogue", 7f);
                 break;
             case 13:
                 dialogue.text = "Alright, the way to weaken the force field is to fight enemies. Every enemy you kill weakens it";
-                Invoke("Dialogue", 8f);
+                Invoke("Dialogue", 14f);
                 break;
             case 14:
                 dialogue.text = "I Spawned a few enemies in the beginning get them!";
-                Invoke("Dialogue", 3f);
+                Invoke("Dialogue", 6f);
                 break;
             case 15:
                 dialogue.text = "There is a ranged enemy and a meelee enemy, melee enemies have shields and ranged shoot you. Your fast enough to win right?";
-                Invoke("Dialogue", 5f);
+                Invoke("Dialogue", 10f);
                 break;
             case 16:
                 dialogue.text = "";
