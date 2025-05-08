@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
+using UnityEngine.Animations;
 
 namespace Player
 {
@@ -11,12 +12,14 @@ namespace Player
         PlayerSpeed playerSpeed;
         Portal[] portals;
         Teleport teleport;
+        Animator animator;
         // Start is called before the first frame update
         void Start()
         {
             playerSpeed = GetComponent<PlayerSpeed>();
             teleport = GetComponent<Teleport>();
             portals = FindObjectsOfType<Portal>();
+            animator = GetComponent<Animator>();
         }
 
         // Update is called once per frame
@@ -42,6 +45,8 @@ namespace Player
 
         public void Attacks()
         {
+            animator.SetTrigger("Attack");
+            animator.SetBool("Stay", true);
             Hitbox.SetActive(true);
         }
 
