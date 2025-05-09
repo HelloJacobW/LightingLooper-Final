@@ -44,7 +44,7 @@ namespace Player
         void Wait()
         {
             timer += Time.deltaTime;
-            if(timer > 3)
+            if(timer > 3f)
             {
                 CoolDown = true;
                 timer = 0;
@@ -65,13 +65,13 @@ namespace Player
         {
             if (CoolDown)
             {
-                animator.SetTrigger("Attack");
                 animator.SetBool("Stay", true);
+                animator.SetTrigger("Attack");
                 await Task.Delay(400);
                 if(playerSpeed.speed.x > 0.005 || playerSpeed.isFalling)
                     BiggerHitbox.SetActive(true);
                 Hitbox.SetActive(true);
-                
+                CoolDown = false;
             }
         }
 

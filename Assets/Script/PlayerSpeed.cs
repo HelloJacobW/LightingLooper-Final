@@ -80,6 +80,7 @@ namespace Player
             speed.y = Mathf.Clamp(speed.y,-0.6f,1f);
             if (isFalling) 
             {
+                speed.y = Mathf.Clamp(speed.y, -0.6f, 1f);
                 speed.y -= fallSpeed * Time.deltaTime;
                 fallMomentum += Mathf.Abs(speed.y) * Time.deltaTime;
             }

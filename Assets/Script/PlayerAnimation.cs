@@ -24,7 +24,6 @@ public class PlayerAnimation : MonoBehaviour
                 an.SetBool("FallingDown", false);
             else
                 an.SetBool("FallingDown", true);
-        Debug.Log(an.GetFloat("Speed"));
 
     }
     void No()
