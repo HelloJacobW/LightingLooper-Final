@@ -10,20 +10,21 @@ public class PlayerAnimation : MonoBehaviour
     public Animator an;
     void Start()
     {
-        speed = GetComponent<PlayerSpeed>();
-        an = GetComponent<Animator>();
+        speed = FindFirstObjectByType<PlayerSpeed>();
+        an = GetComponentInChildren<Animator>();
     }
     void Update()
     {
-        an.SetFloat("Speed", speed.speed.x);
+        an.SetFloat("Speed", Mathf.Abs(speed.speed.x));
         if (an.GetBool("Stay"))
-            Invoke("No", 0.17f);
+            Invoke("No", 6f);
         an.SetBool("Grounded", !speed.isFalling);
         if (speed.isFalling)
             if (speed.speed.y > 0f)
                 an.SetBool("FallingDown", false);
             else
                 an.SetBool("FallingDown", true);
+        Debug.Log(an.GetFloat("Speed"));
 
     }
     void No()

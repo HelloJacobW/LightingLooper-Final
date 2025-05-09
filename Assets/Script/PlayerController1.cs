@@ -3,35 +3,53 @@ using System.Collections.Generic;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.Animations;
+using System.Threading.Tasks;
 
 namespace Player
 {
     public class PlayerController : MonoBehaviour
     {
         public GameObject Hitbox;
+        public GameObject BiggerHitbox;
         PlayerSpeed playerSpeed;
         Portal[] portals;
         Teleport teleport;
         Animator animator;
+        bool CoolDown;
+        float timer;
         // Start is called before the first frame update
         void Start()
         {
             playerSpeed = GetComponent<PlayerSpeed>();
             teleport = GetComponent<Teleport>();
             portals = FindObjectsOfType<Portal>();
-            animator = GetComponent<Animator>();
+            animator = GetComponentInChildren<Animator>();
+            CoolDown = true;
         }
 
         // Update is called once per frame
         void Update()
         {
+            playerSpeed.speed.y = Mathf.Clamp(playerSpeed.speed.y, -0.6f, 1f);
             transform.Translate(playerSpeed.getSpeed(), Space.World);
             if(playerSpeed.speed.x < 0f)
                 gameObject.transform.rotation = Quaternion.Euler(0, 180, 0);
             else
                 gameObject.transform.rotation = Quaternion.Euler(0, 0, 0);
+            if (!CoolDown)
+            {
+                Wait();
+            }
         }
-
+        void Wait()
+        {
+            timer += Time.deltaTime;
+            if(timer > 3)
+            {
+                CoolDown = true;
+                timer = 0;
+            }
+        }
         public void StartFall()
         {
             playerSpeed.isFalling = true;
@@ -43,11 +61,18 @@ namespace Player
             playerSpeed.isFalling = true;
         }
 
-        public void Attacks()
+        public async void Attacks()
         {
-            animator.SetTrigger("Attack");
-            animator.SetBool("Stay", true);
-            Hitbox.SetActive(true);
+            if (CoolDown)
+            {
+                animator.SetTrigger("Attack");
+                animator.SetBool("Stay", true);
+                await Task.Delay(400);
+                if(playerSpeed.speed.x > 0.005 || playerSpeed.isFalling)
+                    BiggerHitbox.SetActive(true);
+                Hitbox.SetActive(true);
+                
+            }
         }
 
         public void PortalDirect(Vector2 direction)
