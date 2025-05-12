@@ -16,10 +16,12 @@ public class HitBox : MonoBehaviour
     }
     private void OnEnable()
     {
-        if (gameObject && speed.speed.x != 0)
-            transform.position = new Vector3(Player.transform.position.x + (Mathf.Abs(speed.speed.x) / speed.speed.x), Player.transform.position.y, Player.transform.position.z);
+        if(speed.speed.x > 0)
+        {
+            transform.position = new Vector3(Player.transform.position.x + 0.5f, Player.transform.position.y, Player.transform.position.z);
+        }
         else
-            transform.position = new Vector3(Player.transform.position.x + 2, Player.transform.position.y, Player.transform.position.z);
+            transform.position = new Vector3(Player.transform.position.x + 0.5f, Player.transform.position.y, Player.gameObject.transform.position.z);
         Invoke("Disable", timeOut);
     }
     private void Update()

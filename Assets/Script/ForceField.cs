@@ -66,12 +66,18 @@ public class ForceField : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("Entered");
-        push = true;
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            Debug.Log("Entered");
+            push = true;
+        }
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        Debug.Log("Exited");
-        push = false;
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            Debug.Log("Exited");
+            push = false;
+        }
     }
 }

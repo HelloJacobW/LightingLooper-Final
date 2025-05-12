@@ -15,7 +15,7 @@ public class Bullet : MonoBehaviour
         Vector3 direction = player.transform.position - transform.position;
         rb.velocity = new Vector2(direction.x, direction.y).normalized * force;
         float rot = Mathf.Atan2(-direction.y, -direction.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Euler(0, 0, rot + 90);
+        transform.rotation = Quaternion.Euler(0, 0, rot);
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -23,6 +23,13 @@ public class Bullet : MonoBehaviour
         {
             PlayerHealth health = FindFirstObjectByType<PlayerHealth>();
             health.Hit();
+        }
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Boundarie"))
+        {
+            Destroy(gameObject);
         }
     }
 }

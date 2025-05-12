@@ -68,7 +68,7 @@ namespace Player
                 animator.SetBool("Stay", true);
                 animator.SetTrigger("Attack");
                 await Task.Delay(400);
-                if(playerSpeed.speed.x > 0.005 || playerSpeed.isFalling)
+                if(Mathf.Abs(playerSpeed.speed.x) > 0.005 || playerSpeed.isFalling)
                     BiggerHitbox.SetActive(true);
                 Hitbox.SetActive(true);
                 CoolDown = false;

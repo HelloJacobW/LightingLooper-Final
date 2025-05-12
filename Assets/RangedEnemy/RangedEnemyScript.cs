@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Animations;
 
 public class RangedEnemyScript : MonoBehaviour
 {
@@ -8,25 +9,28 @@ public class RangedEnemyScript : MonoBehaviour
     public GameObject bullet;
     public Transform bulletPos;
     private float timer = 0f;
+    private Animator an;
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+        an = GetComponent<Animator>();
     }
     void Update()
     {
         float distance = Vector2.Distance(transform.position, player.transform.position);
         if(distance < 10)
         {
-            Shoot();
+            timer += Time.deltaTime;
+            if (timer > 2)
+            {
+                timer = 0;
+                an.SetTrigger("Shoot");
+                Invoke("Shoot", 0.5f);
+            }
         }
     }
     public void Shoot()
     {
-        timer += Time.deltaTime;
-        if (timer > 2)
-        {
-            timer = 0;
-            Instantiate(bullet, bulletPos.position, Quaternion.identity);
-        }
+        Instantiate(bullet, bulletPos.position, Quaternion.identity);
     }
 }
