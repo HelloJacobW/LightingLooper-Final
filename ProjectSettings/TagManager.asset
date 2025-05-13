@@ -15,6 +15,7 @@ TagManager:
   - Orb
   - HitBox
   - Dialogue
+  - HurtBox
   layers:
   - Default
   - TransparentFX

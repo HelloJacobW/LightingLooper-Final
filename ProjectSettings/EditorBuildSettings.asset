@@ -8,5 +8,17 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ProtoType.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/MainScreen.unity
+    guid: c9959317930a4f74d93da65f72fdfa35
+  - enabled: 1
+    path: Assets/Scenes/LevelSelect.unity
+    guid: a46a4e1516b556d4eb542f6e2c541100
+  - enabled: 1
+    path: Assets/Scenes/GameOver.unity
+    guid: 026ce60a0288d29409a907adc4b73743
+  - enabled: 1
+    path: Assets/Scenes/Tutorial.unity
+    guid: 86556720bc69fde478107d7e6388c004
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0
