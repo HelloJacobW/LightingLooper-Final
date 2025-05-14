@@ -1,15 +1,19 @@
 using UnityEngine.UI;
 using UnityEngine;
+using Player;
+using Unity.VisualScripting;
 
 public class DialogueScript : MonoBehaviour
 {
     public Text dialogue;
     private int wave = 0;
     private bool dialogueActive = true;
+    private Spawner[] spawn;
     void Start()
     {
+        spawn = FindObjectsOfType<Spawner>();
         if (dialogue)
-            Invoke("Dialogue", 10f);
+            Invoke("Dialogue", 5f);
     }
     
     private void Dialogue()
@@ -63,6 +67,10 @@ public class DialogueScript : MonoBehaviour
                 break;
             case 13:
                 dialogue.text = "Alright, the way to weaken the force field is to fight enemies. Every enemy you kill weakens it";
+                for(int i = 0; i < spawn.Length; i++)
+                {
+                    spawn[i].SpawnEnemy();
+                }
                 Invoke("Dialogue", 14f);
                 break;
             case 14:

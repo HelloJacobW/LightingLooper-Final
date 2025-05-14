@@ -31,8 +31,4 @@ public class PlayerHealth : MonoBehaviour
             Hit();
         }
     }
-    private void OnCollisionEnter(Collision collision)
-    {
-        
-    }
 }

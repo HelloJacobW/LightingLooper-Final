@@ -10,6 +10,7 @@ public class ForceField : MonoBehaviour
     private PlayerSpeed speed;
     public bool push;
     public float knockBack;
+    public float div;
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
@@ -79,5 +80,9 @@ public class ForceField : MonoBehaviour
             Debug.Log("Exited");
             push = false;
         }
+    }
+    public void EnemyDeath()
+    {
+        knockBack /= div;
     }
 }

@@ -20,6 +20,7 @@ public class EnemyHealth : MonoBehaviour
             Debug.Log("DIE");
             an.SetTrigger("Die");
             //Tell forceField to be less
+            Orb.EnemyDeath();
         }
     }
     public void Break()
