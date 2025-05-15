@@ -44,7 +44,7 @@ namespace Player
         void Wait()
         {
             timer += Time.deltaTime;
-            if(timer > 3f)
+            if(timer > 1.5f)
             {
                 CoolDown = true;
                 timer = 0;

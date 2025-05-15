@@ -10,6 +10,7 @@ public class RangedEnemyScript : MonoBehaviour
     public Transform bulletPos;
     private float timer = 0f;
     private Animator an;
+    public int range;
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
@@ -18,7 +19,7 @@ public class RangedEnemyScript : MonoBehaviour
     void Update()
     {
         float distance = Vector2.Distance(transform.position, player.transform.position);
-        if(distance < 10)
+        if(distance < range)
         {
             timer += Time.deltaTime;
             if (timer > 2)

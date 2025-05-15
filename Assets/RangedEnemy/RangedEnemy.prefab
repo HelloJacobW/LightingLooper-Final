@@ -163,6 +163,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 4281018084407090467, guid: bb47590c470d85d478cb8a365255dad7, type: 3}
   bulletPos: {fileID: 1456220779242364066}
+  range: 15
 --- !u!95 &6240894346953026442
 Animator:
   serializedVersion: 7

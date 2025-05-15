@@ -44,6 +44,8 @@ public class ForceField : MonoBehaviour
     private string Direction()
     {
         Vector2 PlayPos = player.transform.position;
+        if (orb == null)
+            return "Nothing";
         Vector2 OrbPos = orb.transform.position;
         if (speed.isFalling)
         {

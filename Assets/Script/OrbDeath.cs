@@ -6,16 +6,17 @@ public class OrbDeath : MonoBehaviour
 {
     GameManager gameManager;
     public GameObject DeathEffect;
+    public int level;
     void Start()
     {
         gameManager = FindFirstObjectByType<GameManager>();
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (gameObject.transform.IsChildOf(transform) && collision.gameObject.CompareTag("HitBox"))
+        if (collision.gameObject.CompareTag("HitBox"))
         {
             Instantiate(DeathEffect);
-            gameManager.NextLevel();
+            gameManager.NextLevel(level);
             Destroy(gameObject);
         }
     }
