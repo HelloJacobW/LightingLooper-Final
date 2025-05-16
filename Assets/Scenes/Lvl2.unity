@@ -149,6 +149,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c78847d10ede15d4c8915972fa0dcf95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lvl2: 0
+  lvl3: 0
+  lvl4: 0
+  lvl5: 0
 --- !u!4 &46531126
 Transform:
   m_ObjectHideFlags: 0
@@ -74247,26 +74251,6 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
-  - first: {x: 141, y: 11, z: 0}
-    second:
-      serializedVersion: 2
-      m_TileIndex: 34
-      m_TileSpriteIndex: 34
-      m_TileMatrixIndex: 0
-      m_TileColorIndex: 0
-      m_TileObjectToInstantiateIndex: 65535
-      dummyAlignment: 0
-      m_AllTileFlags: 1073741825
-  - first: {x: 142, y: 11, z: 0}
-    second:
-      serializedVersion: 2
-      m_TileIndex: 35
-      m_TileSpriteIndex: 35
-      m_TileMatrixIndex: 0
-      m_TileColorIndex: 0
-      m_TileObjectToInstantiateIndex: 65535
-      dummyAlignment: 0
-      m_AllTileFlags: 1073741825
   - first: {x: 151, y: 11, z: 0}
     second:
       serializedVersion: 2
@@ -75717,9 +75701,9 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: 84933834695c57a48a8dbd987f7f1bea, type: 2}
   - m_RefCount: 2
     m_Data: {fileID: 11400000, guid: 7267bd361d3a7e849853ef4600788b22, type: 2}
-  - m_RefCount: 3
+  - m_RefCount: 2
     m_Data: {fileID: 11400000, guid: a1a76df754343ff40b9c58bb8d05cc6e, type: 2}
-  - m_RefCount: 3
+  - m_RefCount: 2
     m_Data: {fileID: 11400000, guid: 1b1915443d77cf846a4d79a960ed66d8, type: 2}
   m_TileSpriteArray:
   - m_RefCount: 10
@@ -75790,12 +75774,12 @@ Tilemap:
     m_Data: {fileID: -429858114, guid: 6d28f55f1b0572546b2632db94416d69, type: 3}
   - m_RefCount: 2
     m_Data: {fileID: 235426218, guid: 6d28f55f1b0572546b2632db94416d69, type: 3}
-  - m_RefCount: 3
+  - m_RefCount: 2
     m_Data: {fileID: -1861056350, guid: 6d28f55f1b0572546b2632db94416d69, type: 3}
-  - m_RefCount: 3
+  - m_RefCount: 2
     m_Data: {fileID: -46138569, guid: 6d28f55f1b0572546b2632db94416d69, type: 3}
   m_TileMatrixArray:
-  - m_RefCount: 232
+  - m_RefCount: 230
     m_Data:
       e00: 1
       e01: 0
@@ -75814,7 +75798,7 @@ Tilemap:
       e32: 0
       e33: 1
   m_TileColorArray:
-  - m_RefCount: 232
+  - m_RefCount: 230
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
@@ -82540,7 +82524,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DeathEffect: {fileID: 3227062981755980294, guid: 034637193804fb544a89c0adf168e07c, type: 3}
-  level: 0
+  level: 2
 --- !u!1 &4485016479959872941
 GameObject:
   m_ObjectHideFlags: 0

@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class TellToDie : MonoBehaviour
 {
-    GameManager gameManager;
+    GameManagerProxy gameManager;
     private void Start()
     {
-        gameManager = FindFirstObjectByType<GameManager>();
+        gameManager = FindFirstObjectByType<GameManagerProxy>();
     }
     public void TattleTell()
     {
-        gameManager.Die();
+        gameManager.CallDie();
     }
 }

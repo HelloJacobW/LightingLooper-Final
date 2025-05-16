@@ -7,10 +7,10 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
     int number = 1;
-    bool lvl2 = false;
-    bool lvl3 = false;
-    bool lvl4 = false;
-    bool lvl5 = false;
+    public bool lvl2 = false;
+    public bool lvl3 = false;
+    public bool lvl4 = false;
+    public bool lvl5 = false;
     private void Awake()
     {
         if (instance)
@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour
         else
         {
             instance = this;
+            DontDestroyOnLoad(gameObject);
         }
     }
     public void Restart()
@@ -36,10 +37,10 @@ public class GameManager : MonoBehaviour
                 SceneManager.LoadScene(7);
                 break;
             case 9:
-                //SceneManager.LoadScene(8);
+                SceneManager.LoadScene(8);
                 break;
             case 11:
-                //SceneManager.LoadScene(9);
+                SceneManager.LoadScene(9);
                 break;
             default:
                 SceneManager.LoadScene(1);
@@ -52,6 +53,7 @@ public class GameManager : MonoBehaviour
     }
     public void StartGame()
     {
+        Debug.Log("Start");
         SceneManager.LoadScene(2);
     }
     public void MainMenu()
@@ -61,6 +63,11 @@ public class GameManager : MonoBehaviour
     public void Die()
     {
         SceneManager.LoadScene(3);
+    }
+    public void EnterLevel(int level)
+    {
+        level += 4;
+        SceneManager.LoadScene(level);
     }
     public void NextLevel(int level)
     {
@@ -77,6 +84,7 @@ public class GameManager : MonoBehaviour
         if (level == 5 && number > 9)
             return;
         number++;
+        Debug.Log("Inside NextLevel");
         if (number % 2 == 0)
             Invoke("NextLevel", 1f);
         else

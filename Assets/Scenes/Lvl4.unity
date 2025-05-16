@@ -7585,6 +7585,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c78847d10ede15d4c8915972fa0dcf95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lvl2: 0
+  lvl3: 0
+  lvl4: 0
+  lvl5: 0
 --- !u!4 &1547459810
 Transform:
   m_ObjectHideFlags: 0
@@ -77826,7 +77830,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DeathEffect: {fileID: 3227062981755980294, guid: 034637193804fb544a89c0adf168e07c, type: 3}
-  level: 0
+  level: 4
 --- !u!199 &4515042630910695886
 ParticleSystemRenderer:
   serializedVersion: 6

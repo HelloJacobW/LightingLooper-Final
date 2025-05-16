@@ -13,7 +13,7 @@ public class HitBox : MonoBehaviour
         Player = GameObject.FindGameObjectWithTag("Player");
         speed = FindFirstObjectByType<PlayerSpeed>();
         gameObject.SetActive(false);
-        timeOut = 0.1f;
+        timeOut = 0.3f;
     }
     private void OnEnable()
     {

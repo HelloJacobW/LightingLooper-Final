@@ -4,19 +4,19 @@ using UnityEngine;
 
 public class OrbDeath : MonoBehaviour
 {
-    GameManager gameManager;
+    GameManagerProxy gameManager;
     public GameObject DeathEffect;
     public int level;
     void Start()
     {
-        gameManager = FindFirstObjectByType<GameManager>();
+        gameManager = FindFirstObjectByType<GameManagerProxy>();
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("HitBox"))
         {
-            Instantiate(DeathEffect);
-            gameManager.NextLevel(level);
+            Instantiate(DeathEffect, transform.position, Quaternion.identity);
+            gameManager.CallNextLevel(level);
             Destroy(gameObject);
         }
     }
