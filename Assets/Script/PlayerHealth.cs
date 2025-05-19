@@ -8,9 +8,11 @@ public class PlayerHealth : MonoBehaviour
 {
     public int health = 3;
     private Animator animator;
+    float timer = 0;
     private void Start()
     {
         animator = GetComponentInChildren<Animator>();
+        animator.SetBool("Dead", false);
     }
     public void Hit()
     {
@@ -21,14 +23,20 @@ public class PlayerHealth : MonoBehaviour
         if(health <= 0)
         {
             Debug.Log("Player death");
+            animator.SetBool("Dead", true);
             animator.SetTrigger("Die");
         }
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("HurtBox"))
+        if (other.gameObject.CompareTag("HurtBox") && timer >= 2)
         {
             Hit();
+            timer = 0;
         }
+    }
+    private void Update()
+    {
+        timer += Time.deltaTime;
     }
 }

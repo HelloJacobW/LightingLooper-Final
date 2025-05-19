@@ -22,7 +22,7 @@ public class RangedEnemyScript : MonoBehaviour
         if(distance < range)
         {
             timer += Time.deltaTime;
-            if (timer > 2)
+            if (timer > 4)
             {
                 timer = 0;
                 an.SetTrigger("Shoot");

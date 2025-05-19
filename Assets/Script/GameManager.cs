@@ -27,19 +27,22 @@ public class GameManager : MonoBehaviour
     {
         switch (number)
         {
-            case 3:
+            case 0:
+                SceneManager.LoadScene(4);
+                break;
+            case 1:
                 SceneManager.LoadScene(5);
                 break;
-            case 5:
+            case 2:
                 SceneManager.LoadScene(6);
                 break;
-            case 7:
+            case 3:
                 SceneManager.LoadScene(7);
                 break;
-            case 9:
+            case 4:
                 SceneManager.LoadScene(8);
                 break;
-            case 11:
+            case 5:
                 SceneManager.LoadScene(9);
                 break;
             default:
@@ -72,44 +75,61 @@ public class GameManager : MonoBehaviour
     public void NextLevel(int level)
     {
         if (level == 0)
+        {
+            SceneManager.LoadScene(2);
             return;
+        }
         if (level == 1 && number > 1)
+        {
+            SceneManager.LoadScene(2);
             return;
-        if (level == 2 && number > 3)
+        }
+        if (level == 2 && number > 2)
+        {
+            SceneManager.LoadScene(2);
             return;
-        if (level == 3 && number > 5)
+        }
+        if (level == 3 && number > 3)
+        {
+            SceneManager.LoadScene(2);
             return;
-        if (level == 4 && number > 7)
+        }
+        if (level == 4 && number > 4)
+        {
+            SceneManager.LoadScene(2);
             return;
-        if (level == 5 && number > 9)
+        }
+        if (level == 5 && number > 5)
+        {
+            SceneManager.LoadScene(10);
             return;
+        }
         number++;
-        Debug.Log("Inside NextLevel");
-        if (number % 2 == 0)
-            Invoke("NextLevel", 1f);
-        else
-            switch (number)
-            {
-                case 3:
-                    Debug.Log("#worked");
-                    lvl2 = true;
-                    SceneManager.LoadScene(2);
-                    break;
-                case 5:
-                    lvl3 = true;
-                    SceneManager.LoadScene(2);
-                    break;
-                case 7:
-                    lvl4 = true;
-                    SceneManager.LoadScene(2);
-                    break;
-                case 9:
-                    lvl5 = true;
-                    SceneManager.LoadScene(2);
-                    break;
-                default:
-                    Debug.Log("Broken math");
-                    break;
-            }
+        switch (number)
+        {
+            case 2:
+                Debug.Log("#worked");
+                lvl2 = true;
+                SceneManager.LoadScene(2);
+                break;
+            case 3:
+                lvl3 = true;
+                SceneManager.LoadScene(2);
+                break;
+            case 4:
+                lvl4 = true;
+                SceneManager.LoadScene(2);
+                break;
+            case 5:
+                lvl5 = true;
+                SceneManager.LoadScene(2);
+                break;
+            case 6:
+                SceneManager.LoadScene(10);
+                break;
+            default:
+                Debug.Log("Broken math");
+                break;
+        }
     }
 }

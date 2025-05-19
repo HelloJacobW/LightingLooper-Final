@@ -63,7 +63,7 @@ namespace Player
 
         public async void Attacks()
         {
-            if (CoolDown)
+            if (CoolDown && BiggerHitbox != null)
             {
                 animator.SetBool("Stay", true);
                 animator.SetTrigger("Attack");
@@ -77,6 +77,11 @@ namespace Player
 
         public void PortalDirect(Vector2 direction)
         {
+            if (portals == null)
+            {
+                portals = FindObjectsOfType<Portal>();
+                return;
+            }
             string joystic;
             string firstPortalPlace;
             string goingRight;
@@ -87,6 +92,7 @@ namespace Player
             }
             foreach (Portal portal2 in portals)
             {
+                if(portal2 == null) return;
                 portal2.gameObject.SetActive(true);
             }
             if (playerSpeed.speed.x >= 0)

@@ -25,6 +25,7 @@ public class GameManagerProxy : MonoBehaviour
 
     public void CallMainMenu()
     {
+        Debug.Log("Call mainmenu");
         if (manager != null) manager.MainMenu();
     }
 
