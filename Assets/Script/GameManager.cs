@@ -46,7 +46,7 @@ public class GameManager : MonoBehaviour
                 SceneManager.LoadScene(9);
                 break;
             default:
-                SceneManager.LoadScene(1);
+                SceneManager.LoadScene(0);
                 break;
         }
     }
@@ -61,7 +61,7 @@ public class GameManager : MonoBehaviour
     }
     public void MainMenu()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(0);
     }
     public void Die()
     {

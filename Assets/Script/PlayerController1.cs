@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.Animations;
 using System.Threading.Tasks;
@@ -63,6 +62,7 @@ namespace Player
 
         public async void Attacks()
         {
+            Debug.Log("Attack");
             if (CoolDown && BiggerHitbox != null)
             {
                 animator.SetBool("Stay", true);

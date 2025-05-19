@@ -30,6 +30,8 @@ namespace Player
             inputActions.PlayerActions.Move.started += OnMove;
             inputActions.PlayerActions.Move.performed += OnMove;
             inputActions.PlayerActions.Move.canceled += OnMove;
+            if(controller != null)
+            {
 
             inputActions.PlayerActions.Jump.started += ctx => controller.Jump();
 
@@ -37,6 +39,7 @@ namespace Player
 
             inputActions.PlayerActions.Portal.started += ctx => controller.PortalDirect(stickDirection);
 
+            }
             inputActions.PlayerActions.StickRotation.started += StickDirection;
             inputActions.PlayerActions.StickRotation.performed += StickDirection;
             inputActions.PlayerActions.StickRotation.canceled += StickDirection;
