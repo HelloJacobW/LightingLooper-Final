@@ -76,6 +76,17 @@
                 },
                 {
                     "name": "",
+                    "id": "f33a04db-1c60-42ca-89fb-928da1be58ac",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Attack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "cf44e410-45cc-424f-b590-88d4c25ce49d",
                     "path": "<XInputController>/buttonSouth",
                     "interactions": "",
@@ -122,6 +133,17 @@
                     "name": "",
                     "id": "379e0203-3844-4fda-8766-477a9aa79e04",
                     "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Portal",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "73af59bc-ed72-4cbf-9f20-9ee06d6a7689",
+                    "path": "<Mouse>/rightButton",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
