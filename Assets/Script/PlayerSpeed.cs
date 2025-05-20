@@ -32,7 +32,7 @@ namespace Player
         public void gainSpeed()
         {
             speed.x = Mathf.Clamp(speed.x,minXSpeed, maxXSpeed);
-                speed.x += speedGain * input.GetMove() * Time.deltaTime;
+            speed.x += speedGain * input.GetMove() * Time.deltaTime;
             speed.x = Mathf.Clamp(speed.x, minXSpeed, maxXSpeed);
         }
         public void loseSpeed()
@@ -77,6 +77,7 @@ namespace Player
         }
         private void Update()
         {
+            transform.Translate(getSpeed(), Space.World);
             speed.y = Mathf.Clamp(speed.y,-0.6f,1f);
             if (isFalling) 
             {

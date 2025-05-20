@@ -78,7 +78,7 @@ namespace Player
             return moveInput;
         }
         // Update is called once per frame
-        void Update()
+        void LateUpdate()
         {
 
             if (moveInput == 0 || IsStickBackwards())

@@ -4757,7 +4757,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player: {fileID: 333081786}
   speed: {fileID: 0}
-  timeOut: 0.5
+  timeOut: 0.4
 --- !u!4 &966215309
 Transform:
   m_ObjectHideFlags: 0
@@ -7777,7 +7777,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player: {fileID: 333081786}
   speed: {fileID: 0}
-  timeOut: 0.1
+  timeOut: 0.2
 --- !u!4 &1662712993
 Transform:
   m_ObjectHideFlags: 0

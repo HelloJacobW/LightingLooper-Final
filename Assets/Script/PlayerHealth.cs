@@ -35,7 +35,7 @@ public class PlayerHealth : MonoBehaviour
             timer = 0;
         }
     }
-    private void Update()
+    private void LateUpdate()
     {
         timer += Time.deltaTime;
     }

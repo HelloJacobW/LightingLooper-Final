@@ -39,11 +39,11 @@ public class DialogueScript : MonoBehaviour
                 Invoke("Dialogue", 9f);
                 break;
             case 5:
-                dialogue.text = "Try to go forward then use portal up while grounded before the bump to jump it. Trust me, its way better than a jump.";
+                dialogue.text = "The key to mastering the portal is patience, try to run and instead of jumping, press up and portal";
                 Invoke("Dialogue", 10f);
                 break;
             case 6:
-                dialogue.text = "YOU GOT THIS!, but if you want to cheese it, joystic up jump when you fall down press the portal button. It will boost you up higher and higher each time. There is a boundarie and you lose life if you go too high.";
+                dialogue.text = "YOU GOT THIS!.";
                 Invoke("Dialogue", 20f);
                 break;
             case 7:
