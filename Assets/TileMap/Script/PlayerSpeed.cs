@@ -77,7 +77,7 @@ namespace Player
         }
         private void Update()
         {
-            transform.Translate(getSpeed(), Space.World);
+            //transform.Translate(getSpeed(), Space.World);
             speed.y = Mathf.Clamp(speed.y,-0.6f,1f);
             if (isFalling) 
             {

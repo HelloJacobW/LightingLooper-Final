@@ -56,7 +56,7 @@ namespace Player
         public void Jump()
         {
             if (!playerSpeed.isFalling)
-                playerSpeed.speed.y = 6f * Time.deltaTime;
+                playerSpeed.speed.y = 12f * Time.deltaTime;
             playerSpeed.isFalling = true;
         }
 
